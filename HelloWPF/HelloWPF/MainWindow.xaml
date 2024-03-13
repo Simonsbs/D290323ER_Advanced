@@ -15,6 +15,17 @@
 				Click="MyButton_OnClick"
 				></Button>
 
+		<Button HorizontalAlignment="Center" 
+		        VerticalAlignment="Top" 
+		        Margin="10" 
+		        Click="AddUser_Click">
+			<Button.Content>
+				<StackPanel>
+					<Image Source="/Images/Plus.png" Height="20" Margin="5"/>
+					<TextBlock Text="Add User" Margin="5"/>
+				</StackPanel>
+			</Button.Content>
+		</Button>
 
 		<Button Name="MyButton2" 
 		        Content="Bye World" 
