@@ -16,6 +16,12 @@
 				></Button>
 
 
-		<Button Name="MyButton2" Content="Bye World" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10"></Button>
+		<Button Name="MyButton2" 
+		        Content="Bye World" 
+		        HorizontalAlignment="Right" 
+		        VerticalAlignment="Top" 
+		        Margin="10"
+		        Click="MyButton_OnClick"
+		        ></Button>
 	</Grid>
 </Window>

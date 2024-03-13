@@ -19,6 +19,7 @@ public partial class MainWindow : Window {
 	}
 
 	private void MyButton_OnClick(object sender, RoutedEventArgs e) {
-		MessageBox.Show("Hello, WPF!");
+		//MessageBox.Show("Hello, WPF!");
+		MyButton.Content = "Clicked!!";
 	}
 }
