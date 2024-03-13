@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:HelloWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
 	<Grid>
-		<Button Name="MyButton" 
+		<!--<Button Name="MyButton" 
 				Content="Hello World!" 
 				HorizontalAlignment="Left" 
 				VerticalAlignment="Top" 
@@ -19,12 +20,15 @@
 		        VerticalAlignment="Top" 
 		        Margin="10" 
 		        Click="AddUser_Click">
-			<Button.Content>
-				<StackPanel>
-					<Image Source="/Images/Plus.png" Height="20" Margin="5"/>
-					<TextBlock Text="Add User" Margin="5"/>
-				</StackPanel>
-			</Button.Content>
+
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="Add User" Margin="5"/>
+				<Image Source="/Images/Plus.png" Height="20" Margin="5"/>
+			</StackPanel>
+		</Button>
+
+		<Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10">
+			Simon
 		</Button>
 
 		<Button Name="MyButton2" 
@@ -33,6 +37,6 @@
 		        VerticalAlignment="Top" 
 		        Margin="10"
 		        Click="MyButton_OnClick"
-		        ></Button>
+		        ></Button>-->
 	</Grid>
 </Window>
