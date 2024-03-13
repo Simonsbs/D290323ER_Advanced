@@ -22,7 +22,7 @@ public partial class MainWindow : Window {
 
 	private void MyButton_OnClick(object sender, RoutedEventArgs e) {
 		//MessageBox.Show("Hello, WPF!");
-		MyButton.Content = "Clicked!!";
+		//MyButton.Content = "Clicked!!";
 	}
 
 	private void AddUser_Click(object sender, RoutedEventArgs e) {
