@@ -57,7 +57,7 @@
 			<Rectangle Fill="LightBlue" Height="50" Margin="5" />
 		</StackPanel>-->
 
-		<Grid ShowGridLines="True">
+		<!--<Grid ShowGridLines="True">
 			<Grid.RowDefinitions>
 				<RowDefinition  />
 				<RowDefinition Height="100" />
@@ -71,6 +71,29 @@
 			<Rectangle Fill="DarkGoldenrod" Grid.Column="0" Grid.Row="0" />
 			<Rectangle Fill="LightBlue" Grid.Column="2" Grid.Row="2" />
 			<Rectangle Fill="LightGreen" Grid.Column="1" Grid.Row="1" />
+		</Grid>-->
+
+		<!--<Grid ShowGridLines="True">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="2*"/>
+				<RowDefinition Height="200"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<Rectangle Fill="LightBlue" Grid.Row="0"/>
+			<Rectangle Fill="Orange" Grid.Row="2"/>
+		</Grid>-->
+
+		<Grid ShowGridLines="True">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="2*"/>
+				<RowDefinition Height="200"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+
+			<Rectangle Fill="LightBlue" Grid.Row="0"/>
+			<Rectangle Fill="Orange" Grid.Row="2" Height="80"/>
+			<Rectangle Fill="Pink" Grid.Row="2" Height="100" Width="100"/>
 		</Grid>
 
 	</Grid>
