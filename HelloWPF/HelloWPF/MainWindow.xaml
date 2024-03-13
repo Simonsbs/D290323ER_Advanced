@@ -84,7 +84,7 @@
 			<Rectangle Fill="Orange" Grid.Row="2"/>
 		</Grid>-->
 
-		<Grid ShowGridLines="True">
+		<!--<Grid ShowGridLines="True">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="2*"/>
 				<RowDefinition Height="200"/>
@@ -94,6 +94,21 @@
 			<Rectangle Fill="LightBlue" Grid.Row="0"/>
 			<Rectangle Fill="Orange" Grid.Row="2" Height="80"/>
 			<Rectangle Fill="Pink" Grid.Row="2" Height="100" Width="100"/>
+		</Grid>-->
+
+		<Grid ShowGridLines="True">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Rectangle Fill="Orange" Grid.Row="0" />
+			<Rectangle Fill="LightBlue" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" />
 		</Grid>
 
 	</Grid>
