@@ -17,4 +17,14 @@ public partial class MainWindow : Window {
 	public MainWindow() {
 		InitializeComponent();
 	}
+
+	private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
+		//int col = (int)GridCustomers.GetValue(Grid.ColumnProperty);
+		//int newCol = col == 0 ? 2 : 0;
+		//GridCustomers.SetValue(Grid.ColumnProperty, newCol);
+
+		int col = Grid.GetColumn(GridCustomers);
+		int newCol = col == 0 ? 2 : 0;
+		Grid.SetColumn(GridCustomers, newCol);
+	}
 }
