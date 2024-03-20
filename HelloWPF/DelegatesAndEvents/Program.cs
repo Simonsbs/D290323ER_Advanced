@@ -4,6 +4,18 @@ internal class Program {
 	public delegate void MyDelegate(string message);
 
 	static void Main(string[] args) {
+		MyBusinessLogic bl = new MyBusinessLogic();
+		
+		bl.FinishedWorking += new Notify(MyFunction);
+		bl.DoingWork += new Update(HandleDoingWork);
+		bl.StartWorking();
+
+
+		Console.ReadLine();
+		return;
+		
+
+
 		ActionsApp app = new ActionsApp();
 		app.RunApp();
 
@@ -47,6 +59,11 @@ internal class Program {
 		
 	}
 
+	private static void HandleDoingWork(int percentcompete, string message) {
+		Console.WriteLine($"Doing work: {percentcompete}% ");
+		Console.WriteLine(message);
+	}
+
 	public static void DoSomeWork(MyDelegate logger) {
 		// DO STUFF
 		logger("log...");
@@ -59,6 +76,6 @@ internal class Program {
 	}
 
 	public static void MyFunction(string text) {
-		Console.WriteLine(text);
+		Console.WriteLine("MyFunction: " + text);
 	}
 }
