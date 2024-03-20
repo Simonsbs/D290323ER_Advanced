@@ -8,9 +8,12 @@ internal class Program {
 
 		//del("Simon");
 
-		DoSomeWork(new MyDelegate(MyFunction));
+		MyDelegate fnc1 = new MyDelegate(MyFunction);
+		MyDelegate fnc2 = new MyDelegate(MyFunction2);
+
+		DoSomeWork(fnc1);
 		
-		DoSomeWork(new MyDelegate(MyFunction2));
+		DoSomeWork(fnc2);
 	}
 
 	public static void DoSomeWork(MyDelegate logger) {
