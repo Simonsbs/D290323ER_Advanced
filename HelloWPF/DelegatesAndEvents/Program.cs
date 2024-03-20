@@ -14,6 +14,29 @@ internal class Program {
 		DoSomeWork(fnc1);
 		
 		DoSomeWork(fnc2);
+
+		/*
+		 * EX1
+		 * Step 1: define a delegate called 'MenuAction' that has no
+		 * parameters and returns void.
+		 *
+		 * Step 2:
+		 * build 3 methods that have the same signature as 'MenuAction'
+		 * and do the following:
+		 * 1. ShowGreeting
+		 * 2. DisplayDate
+		 * 3. DisplayTime
+		 *
+		 * Step 3:
+		 * Build a dictionary that holds the functions above and use the
+		 * number as a key
+		 *
+		 * Step 4:
+		 * Build a simple UI that asks the user to select an action (1-3)
+		 * based on the selected value the system will call the function
+		 * from the dictionary and calls the function. 
+		 *
+		 */
 	}
 
 	public static void DoSomeWork(MyDelegate logger) {
