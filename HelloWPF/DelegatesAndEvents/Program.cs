@@ -28,8 +28,8 @@ internal class Program {
 		 * 3. DisplayTime
 		 *
 		 * Step 3:
-		 * Build a dictionary that holds the functions above and use the
-		 * number as a key
+		 * Build a List that holds the functions above and use the
+		 * index as a key
 		 *
 		 * Step 4:
 		 * Build a simple UI that asks the user to select an action (1-3)
@@ -37,6 +37,9 @@ internal class Program {
 		 * from the dictionary and calls the function. 
 		 *
 		 */
+
+
+		
 	}
 
 	public static void DoSomeWork(MyDelegate logger) {
