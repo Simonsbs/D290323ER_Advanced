@@ -4,6 +4,11 @@ internal class Program {
 	public delegate void MyDelegate(string message);
 
 	static void Main(string[] args) {
+		ActionsApp app = new ActionsApp();
+		app.RunApp();
+
+		return;
+
 		MyDelegate del = new MyDelegate(MyFunction);
 
 		//del("Simon");
