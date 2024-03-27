@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp", "MyApp\MyApp.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegatesAndEvents", "DelegatesAndEvents\DelegatesAndEvents.csproj", "{958B0030-65E6-44FD-8116-1A3758E6C9D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTimerApp", "MyTimerApp\MyTimerApp.csproj", "{11F7B493-3531-4D13-91D4-1476E7D6FAE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTimerApp", "MyTimerApp\MyTimerApp.csproj", "{11F7B493-3531-4D13-91D4-1476E7D6FAE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTempMonitor", "MyTempMonitor\MyTempMonitor.csproj", "{E7430988-8FC5-48EC-A136-5E50E787332D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{11F7B493-3531-4D13-91D4-1476E7D6FAE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F7B493-3531-4D13-91D4-1476E7D6FAE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11F7B493-3531-4D13-91D4-1476E7D6FAE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7430988-8FC5-48EC-A136-5E50E787332D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7430988-8FC5-48EC-A136-5E50E787332D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7430988-8FC5-48EC-A136-5E50E787332D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7430988-8FC5-48EC-A136-5E50E787332D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
