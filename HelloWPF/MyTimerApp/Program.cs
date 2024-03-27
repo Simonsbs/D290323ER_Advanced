@@ -8,9 +8,9 @@ internal class Program {
 		
 		Timer timer = new Timer();
 
-		timer.TimerCompleted += new TimerNotification(HandleTimerCompleted);
-		timer.TimerTick += new TimerNotification(HandleTimerTick);
-		timer.TimerTick += new TimerNotification(LogTimerTick);
+		timer.TimerCompleted += new SimpleDelegate(HandleTimerCompleted);
+		timer.TimerTick += new SimpleDelegate(HandleTimerTick);
+		timer.TimerTick += new SimpleDelegate(LogTimerTick);
 
 		Dog dog = new Dog(timer);
 

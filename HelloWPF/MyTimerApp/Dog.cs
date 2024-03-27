@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace MyTimerApp;
 internal class Dog {
 	public Dog(Timer timer) {
-		timer.TimerTick += new Timer.TimerNotification(ReactToTick);
-
+		timer.TimerTick += new SimpleDelegate(ReactToTick);
 	}
 
 	private void ReactToTick(int time) {
