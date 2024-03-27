@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTimerApp", "MyTimerApp\My
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTempMonitor", "MyTempMonitor\MyTempMonitor.csproj", "{E7430988-8FC5-48EC-A136-5E50E787332D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventExample", "EventExample\EventExample.csproj", "{00828C5E-3FB8-461B-899C-787846D4D88D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E7430988-8FC5-48EC-A136-5E50E787332D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7430988-8FC5-48EC-A136-5E50E787332D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7430988-8FC5-48EC-A136-5E50E787332D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00828C5E-3FB8-461B-899C-787846D4D88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00828C5E-3FB8-461B-899C-787846D4D88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00828C5E-3FB8-461B-899C-787846D4D88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00828C5E-3FB8-461B-899C-787846D4D88D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

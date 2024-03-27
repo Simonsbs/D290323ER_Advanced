@@ -1,0 +1,33 @@
+﻿<Window x:Class="EventExample.DogDisplay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EventExample"
+        mc:Ignorable="d"
+        Title="DogDisplay" Height="120" Width="200">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<TextBlock Text="Dog Name" Grid.Row="0" Grid.Column="0" Padding="4" />
+		<TextBox Name="TextBoxDogName" Grid.Row="0" Grid.Column="1" Text=""/>
+
+		<TextBlock Text="Dog Breed" Grid.Row="1" Grid.Column="0" Padding="4" />
+        <TextBox Name="TextBoxDogBreed" Grid.Row="1" Grid.Column="1" Text=""/>
+
+		<TextBlock Text="Is Owned ?" Grid.Row="2" Grid.Column="0" Padding="4" />
+        <TextBox Name="TextBoxDogIsOwned" Grid.Row="2" Grid.Column="1" Text=""/>
+
+        <TextBlock Text="Dog Secret" Grid.Row="3" Grid.Column="0" Padding="4" />
+        <TextBox Name="TextBoxDogSecret" Grid.Row="3" Grid.Column="1" Text=""/>
+	</Grid>
+</Window>

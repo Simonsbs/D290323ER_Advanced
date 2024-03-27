@@ -1,0 +1,52 @@
+﻿[
+	{
+		"Name": "Fido",
+		"Breed": "Pincher",
+		"IsOwned": true
+	},
+	{
+		"Name": "Rover",
+		"Breed": "Lab",
+		"IsOwned": false
+	},
+	{
+		"Name": "Spot",
+		"Breed": "Dalmation",
+		"IsOwned": true
+	},
+	{
+		"Name": "Rex",
+		"Breed": "Shepherd",
+		"IsOwned": false
+	},
+	{
+		"Name": "Buddy",
+		"Breed": "Golden Retriever",
+		"IsOwned": true
+	},
+	{
+		"Name": "Max",
+		"Breed": "Poodle",
+		"IsOwned": false
+	},
+	{
+		"Name": "Jake",
+		"Breed": "Beagle",
+		"IsOwned": true
+	},
+	{
+		"Name": "Sam",
+		"Breed": "Boxer",
+		"IsOwned": false
+	},
+	{
+		"Name": "Charlie",
+		"Breed": "Bulldog",
+		"IsOwned": true
+	},
+	{
+		"Name": "Duke",
+		"Breed": "Pitbull",
+		"IsOwned": false
+	}
+]
