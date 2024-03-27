@@ -4,8 +4,8 @@ namespace MyTempMonitor;
 
 internal class FileLogger {
 	public FileLogger(TemperatureMonitor monitor) {
-		monitor.TemperatureChange += new Action<int>(HandleTemperatureChange);
-		monitor.LowTemperatureAlert += new Action<int, string>(HandleLowTemperatureAlert);
+		monitor.TemperatureChange += HandleTemperatureChange;
+		monitor.LowTemperatureAlert += HandleLowTemperatureAlert;
 	}
 
 	private void HandleLowTemperatureAlert(int temperature, string message) {
