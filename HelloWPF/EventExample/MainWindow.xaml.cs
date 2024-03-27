@@ -17,7 +17,25 @@ public partial class MainWindow : Window {
 	public MainWindow() {
 		InitializeComponent();
 
-		List<Dog> dogs = Dog.GetListFromFile();
+		//List<Dog> dogs = Dog.GetListFromFile();
+
+		List<Dog> dogs = new List<Dog>() {
+			new Dog() {
+				Name = "Fido",
+				Breed = "Golden Retriever",
+				IsOwned = true
+			},
+			new Dog() {
+				Name = "Rex",
+				Breed = "German Shepherd",
+				IsOwned = false
+			},
+			new Dog() {
+				Name = "Spot",
+				Breed = "Dalmatian",
+				IsOwned = true
+			}
+		};
 
 		GridOfDogs.ItemsSource = dogs;
 

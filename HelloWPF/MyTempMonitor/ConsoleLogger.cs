@@ -2,7 +2,7 @@
 
 internal class ConsoleLogger {
 	public ConsoleLogger(TemperatureMonitor monitor) {
-		monitor.TemperatureChange += HandleTemperatureChange;
+		monitor.TemperatureChange += new EventHandler<TemperatureEventArgs>(HandleTemperatureChange);
 		monitor.HighTemperatureAlert += HandleTemperatureAlert;
 		monitor.LowTemperatureAlert += HandleTemperatureAlert;
 	}
