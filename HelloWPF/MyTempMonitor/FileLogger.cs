@@ -8,11 +8,11 @@ internal class FileLogger {
 		monitor.LowTemperatureAlert += HandleLowTemperatureAlert;
 	}
 
-	private void HandleLowTemperatureAlert(int temperature, string message) {
-		File.AppendAllText("low_temp.txt", message + Environment.NewLine);
+	private void HandleLowTemperatureAlert(object sender, TemperatureAlertEventArgs e) {
+		File.AppendAllText("low_temp.txt", e.Message + Environment.NewLine);
 	}
 
-	private void HandleTemperatureChange(int temperature) {
-		File.AppendAllText("temp.txt", $"The temperature right now is: {temperature}" + Environment.NewLine);
+	private void HandleTemperatureChange(object sender, TemperatureEventArgs e) {
+		File.AppendAllText("temp.txt", $"The temperature right now is: {e.Temperature}" + Environment.NewLine);
 	}
 }

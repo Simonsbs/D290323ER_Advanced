@@ -2,24 +2,18 @@
 
 internal class ConsoleLogger {
 	public ConsoleLogger(TemperatureMonitor monitor) {
-		monitor.TemperatureChange += new Action<int>(HandleTemperatureChange);
-		monitor.HighTemperatureAlert += new Action<int, string>(HandleHighTemperatureAlert);
-		monitor.LowTemperatureAlert += new Action<int, string>(HandleLowTemperatureAlert);
+		monitor.TemperatureChange += HandleTemperatureChange;
+		monitor.HighTemperatureAlert += HandleTemperatureAlert;
+		monitor.LowTemperatureAlert += HandleTemperatureAlert;
 	}
 
-	private void HandleLowTemperatureAlert(int temperature, string message) {
-		Console.ForegroundColor = ConsoleColor.Cyan;
-		Console.WriteLine(message);
+	private void HandleTemperatureAlert(object sender, TemperatureAlertEventArgs e) {
+		Console.ForegroundColor = e.AlertType == AlertType.Hot ? ConsoleColor.Red : ConsoleColor.Cyan;
+		Console.WriteLine(e.Message);
 		Console.ResetColor();
 	}
 
-	private void HandleHighTemperatureAlert(int temperature, string message) {
-		Console.ForegroundColor = ConsoleColor.Red;
-		Console.WriteLine(message);
-		Console.ResetColor();
-	}
-
-	private void HandleTemperatureChange(int temperature) {
-		Console.WriteLine($"The temperature right now is: {temperature}");
+	private void HandleTemperatureChange(object sender, TemperatureEventArgs e) {
+		Console.WriteLine($"The temperature right now is: {e.Temperature}");
 	}
 }

@@ -22,7 +22,6 @@ public partial class MainWindow : Window {
 		GridOfDogs.ItemsSource = dogs;
 
 		BtnDoSomething.Click += ButtonBase_OnClick;
-
 	}
 
 	private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
@@ -34,6 +33,7 @@ public partial class MainWindow : Window {
 		}
 
 		DogDisplay dogDisplay = new DogDisplay(selectedDog);
+		dogDisplay.Owner = this;
 		dogDisplay.Show();
 	}
 }

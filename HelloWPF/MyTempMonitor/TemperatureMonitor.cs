@@ -1,9 +1,9 @@
 ﻿namespace MyTempMonitor;
 
 public class TemperatureMonitor {
-	public event Action<int> TemperatureChange;
-	public event Action<int, string> LowTemperatureAlert;
-	public event Action<int, string> HighTemperatureAlert;
+	public event EventHandler<TemperatureEventArgs> TemperatureChange;
+	public event EventHandler<TemperatureAlertEventArgs> LowTemperatureAlert;
+	public event EventHandler<TemperatureAlertEventArgs> HighTemperatureAlert;
 
 	public void Start() {
 		Random rnd = new Random();
@@ -28,7 +28,12 @@ public class TemperatureMonitor {
 	private void OnTemperatureChange(int temperature) {
 		if (TemperatureChange != null) {
 			//TemperatureChange(temperature);
-			TemperatureChange.Invoke(temperature);
+
+			var args = new TemperatureEventArgs() {
+				Temperature = temperature
+			};
+
+			TemperatureChange.Invoke(this, args);
 		}
 
 		OnAlert(temperature);
@@ -42,10 +47,18 @@ public class TemperatureMonitor {
 
 
 	private void OnAlert(int temperature) {
+		var args = new TemperatureAlertEventArgs() {
+			Temperature = temperature
+		};
+
 		if (temperature > 40 && HighTemperatureAlert != null) {
-			HighTemperatureAlert(temperature, $"Look out the temperature is high: {temperature}");
+			args.Message = $"Look out the temperature is high: {temperature}";
+			args.AlertType = AlertType.Hot;
+			HighTemperatureAlert(this, args);
 		} else if (temperature < 0 && LowTemperatureAlert != null) {
-			LowTemperatureAlert(temperature, $"Look out the temperature is low: {temperature}");
+			args.Message = $"Look out the temperature is low: {temperature}";
+			args.AlertType = AlertType.Cold;
+			LowTemperatureAlert(this, args);
 		}
 	}
 
