@@ -1,10 +1,12 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
+using HackerU.D290323ER.HelloWPF.MyLibrary;
 
-namespace AccessModifiers2;
+namespace HackerU.D290323ER.HelloWPF.AccessModifiers2;
 
 internal class Program {
 	static void Main(string[] args) {
-		Cat c = new Cat();
+		Cat c = new Cat("Mitsy");
 		// unable to access due to protection level
 		//c.MakeSound();
 		//c.MakeAnotherSound();
@@ -13,13 +15,17 @@ internal class Program {
 
 
 		Animal a = new Animal();
+		a.MakeSound();
+		a.MakeSound2();
 		// unable to access due to protection level
 		//a.MakeSound();
 		//a.MakeAnotherSound();
 		//a.isAlive = true;
 		//a.Color = "Green";
 
-		Dog d = new Dog();
+		Dog d = new Dog("Fido");
+
+		
 	}
 
 }

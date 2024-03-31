@@ -5,6 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <RootNamespace>HackerU.D290323ER.HelloWPF.MyLibrary</RootNamespace>
   </PropertyGroup>
 
 </Project>
