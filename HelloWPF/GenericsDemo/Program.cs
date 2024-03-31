@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Net.Http.Headers;
 using HackerU.D290323ER.HelloWPF.MyLibrary;
 
 namespace GenericsDemo;
@@ -47,14 +48,48 @@ internal class Program {
 
 		ConsoleLogger<string> logger = new ConsoleLogger<string>();
 		logger.WriteToLog("Simon's message");
-		
+
 		ConsoleLogger<int> logger2 = new ConsoleLogger<int>();
 		logger2.WriteToLog(123);
-		
+
 		ConsoleLogger<Cat> logger3 = new ConsoleLogger<Cat>();
 		logger3.WriteToLog(new Cat("Mitsy"));
-		
 
+		Console.WriteLine("------------------------------------");
+
+		MyRepository<User> userRepository = new MyRepository<User>();
+		userRepository.Add(new User {
+			ID = 1,
+			Name = "Simon"
+		});
+		userRepository.Add(new User {
+			ID = 2,
+			Name = "Bob"
+		});
+		userRepository.Add(new User {
+			ID = 3,
+			Name = "Jane"
+		});
+
+		User user2 = userRepository.GetByID(2);
+
+		Console.WriteLine(user2);
+
+		MyRepository<Product> productRepository = new MyRepository<Product>();
+		productRepository.Add(new Product {
+			ID = 1,
+			Name = "Computer"
+		});
+		productRepository.Add(new Product {
+			ID = 2,
+			Name = "Book"
+		});
+		productRepository.Add(new Product {
+			ID = 3,
+			Name = "House"
+		});
+
+		
 		/*
 		 *
 		Implement a generic ConsoleLogger<T> class that can log messages 
@@ -70,5 +105,49 @@ internal class Program {
 			with various types.
 		 *
 		 */
+	}
+}
+
+public class GeneralBase {
+	public int ID { get; set; }
+}
+
+public interface IHasName {
+	public string Name { get; set; }
+}
+
+public class User : GeneralBase {
+
+	public string Name { get; set; }
+
+	public override string ToString() {
+		return Name;
+	}
+}
+
+public class Product : GeneralBase {
+
+	public string Name { get; set; }
+
+	public override string ToString() {
+		return Name;
+	}
+}
+
+public class MyRepository<T> where T : GeneralBase {
+	private List<T> _items = new List<T>();
+
+	public void Add(T item) {
+		_items.Add(item);
+	}
+
+	public T GetByID(int id) {
+		foreach (T item in _items) {
+			if (item.ID == id) {
+				return item;
+			}
+		}
+		
+		return null;
 	}
 }
