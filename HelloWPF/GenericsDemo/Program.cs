@@ -43,6 +43,17 @@ internal class Program {
 
 		Console.WriteLine($"the sum of the stack is: {sum}");
 
+		Console.WriteLine("------------------------------------");
+
+		ConsoleLogger<string> logger = new ConsoleLogger<string>();
+		logger.WriteToLog("Simon's message");
+		
+		ConsoleLogger<int> logger2 = new ConsoleLogger<int>();
+		logger2.WriteToLog(123);
+
+		ConsoleLogger<Cat> logger3 = new ConsoleLogger<Cat>();
+		logger3.WriteToLog(new Cat("Mitsy"));
+
 
 		/*
 		 *
@@ -59,6 +70,12 @@ internal class Program {
 			with various types.
 		 *
 		 */
+	}
+}
+
+public class ConsoleLogger<T> {
+	public void WriteToLog(T message) {
+		Console.WriteLine($"Message: {message} ; Type: {typeof(T)}");
 	}
 }
 

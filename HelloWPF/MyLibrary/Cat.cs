@@ -5,7 +5,11 @@ public class Cat : Animal {
 		Name = name;
 	}
 
-	 protected internal override void MakeSound() {
+	protected internal override void MakeSound() {
 		Console.WriteLine("Meow");
+	}
+
+	public override string ToString() {
+		return $"Cat called: {Name}";
 	}
 }
