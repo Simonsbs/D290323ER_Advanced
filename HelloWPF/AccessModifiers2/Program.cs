@@ -15,15 +15,15 @@ internal class Program {
 
 
 		Animal a = new Animal();
-		a.MakeSound();
-		a.MakeSound2();
+		//a.MakeSound();
+		//a.MakeSound2();
 		// unable to access due to protection level
 		//a.MakeSound();
 		//a.MakeAnotherSound();
 		//a.isAlive = true;
 		//a.Color = "Green";
 
-		Dog d = new Dog("Fido");
+		//Dog d = new Dog("Fido");
 
 		
 	}
