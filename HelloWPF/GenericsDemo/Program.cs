@@ -50,10 +50,10 @@ internal class Program {
 		
 		ConsoleLogger<int> logger2 = new ConsoleLogger<int>();
 		logger2.WriteToLog(123);
-
+		
 		ConsoleLogger<Cat> logger3 = new ConsoleLogger<Cat>();
 		logger3.WriteToLog(new Cat("Mitsy"));
-
+		
 
 		/*
 		 *
