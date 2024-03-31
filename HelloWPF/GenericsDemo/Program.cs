@@ -50,12 +50,12 @@ internal class Program {
 		of any type to the console, using a generic method.
 		   
 		Requirements
-			The ConsoleLogger<T> class should have a generic method Log(T message) 
+			1. The ConsoleLogger<T> class should have a generic method Log(T message) 
 			that logs messages to the console.
-			The log output should include the type of the message and the message itself.
-			Implement overloads or additional methods as necessary to demonstrate 
-			versatility with different types, including custom types.
-			Create a small console application to demonstrate using ConsoleLogger<T> 
+					
+			2. The log output should include the type of the message (typeof()) and the message itself.
+			
+			3. Create a small console application to demonstrate using ConsoleLogger<T> 
 			with various types.
 		 *
 		 */
