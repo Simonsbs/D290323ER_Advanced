@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Common;
 
 namespace ProjectGallery.Controls;
 /// <summary>
 /// Interaction logic for ProjectButton.xaml
 /// </summary>
 public partial class ProjectButton : UserControl {
-	public string Text { get; set; }
-
-	public ProjectButton(string text) {
+	
+	public ProjectButton(IProjectMeta project) {
 		InitializeComponent();
 		
-		DataContext = this;
-
-		Text = text;
+		DataContext = project;
 	}
 }

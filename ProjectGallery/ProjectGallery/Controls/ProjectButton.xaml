@@ -8,8 +8,8 @@
              d:DesignHeight="100" d:DesignWidth="100">
     <Button>
 		<StackPanel Orientation="Vertical">
-            <Image Source="../Resources/Plus.png" Width="50" Height="50" />
-            <TextBlock Text="{Binding Text}" TextAlignment="Center" />
+            <Image Source="{Binding Icon}" Width="50" Height="50" />
+            <TextBlock Text="{Binding Name}" TextAlignment="Center" />
 		</StackPanel>
     </Button>
 </UserControl>

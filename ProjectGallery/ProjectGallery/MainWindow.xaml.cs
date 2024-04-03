@@ -18,8 +18,7 @@ namespace ProjectGallery;
 public partial class MainWindow : Window {
 	private IProjectMeta[] projects = new IProjectMeta[] {
 		new MemoryGame.Project(),
-		new Tic_Tac_Toe.Project(),
-		new MemoryGame.Project()
+		new Tic_Tac_Toe.Project()
 	};
 
 	public MainWindow() {
@@ -54,7 +53,7 @@ public partial class MainWindow : Window {
 			
 			//button.Content = pnl;
 
-			ProjectButton button = new ProjectButton(project.Name) {
+			ProjectButton button = new ProjectButton(project) {
 				Margin = new Thickness(10),
 				Width = 100,
 				Height = 130
