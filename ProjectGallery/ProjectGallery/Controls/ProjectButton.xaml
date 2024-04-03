@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ProjectGallery.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
-    <Button>
+    <Button Name="MainButton">
 		<StackPanel Orientation="Vertical">
             <Image Source="{Binding Icon}" Width="50" Height="50" />
             <TextBlock Text="{Binding Name}" TextAlignment="Center" />

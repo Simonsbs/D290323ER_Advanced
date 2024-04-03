@@ -11,4 +11,9 @@ public class Project : IProjectMeta {
 	public string Name { get; set; } = "Tic-Tac-Toe";
 
 	public BitmapImage Icon => new BitmapImage(new Uri($"{AppDomain.CurrentDomain.BaseDirectory}/Resources/Main.png", UriKind.Absolute));
+
+	public void Run() {
+		MainWindow window = new MainWindow();
+		window.ShowDialog();
+	}
 }

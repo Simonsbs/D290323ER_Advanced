@@ -9,4 +9,5 @@ namespace Common;
 public interface IProjectMeta {
 	public string Name { get; }
 	public BitmapImage Icon { get; }
+	public void Run();
 }

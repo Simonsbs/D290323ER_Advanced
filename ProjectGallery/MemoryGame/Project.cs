@@ -11,4 +11,9 @@ public class Project : IProjectMeta {
 	public string Name { get; set; } = "Memory Game";
 
 	public BitmapImage Icon => new BitmapImage(new Uri($"{AppDomain.CurrentDomain.BaseDirectory}/Resources/Plus.png", UriKind.Absolute));
+
+	public void Run() {
+		MainWindow window = new MainWindow();
+		window.ShowDialog();
+	}
 }

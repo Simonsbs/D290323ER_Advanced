@@ -19,10 +19,16 @@ namespace ProjectGallery.Controls;
 /// Interaction logic for ProjectButton.xaml
 /// </summary>
 public partial class ProjectButton : UserControl {
-	
+	 
 	public ProjectButton(IProjectMeta project) {
 		InitializeComponent();
 		
 		DataContext = project;
+
+		MainButton.Click += (sender, e) => project.Run();
 	}
+
+	/*private void Handle_Click(object sender, RoutedEventArgs e) {
+
+	}*/
 }
