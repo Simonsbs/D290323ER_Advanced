@@ -8,18 +8,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Common;
 using ProjectGallery.Controls;
-using Tic_Tac_Toe;
 
 namespace ProjectGallery;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
 public partial class MainWindow : Window {
-	private Project[] projects = new[] {
-		new Project(),
-		new Project(),
-		new Project()
+	private IProjectMeta[] projects = new IProjectMeta[] {
+		new MemoryGame.Project(),
+		new Tic_Tac_Toe.Project(),
+		new MemoryGame.Project()
 	};
 
 	public MainWindow() {

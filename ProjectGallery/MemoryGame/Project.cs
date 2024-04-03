@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Common;
 
-namespace Tic_Tac_Toe;
+namespace MemoryGame;
 public class Project : IProjectMeta {
-	public string Name { get; set; } = "Tic-Tac-Toe";
-
+	public string Name { get; set; } = "Memory Game";
 }

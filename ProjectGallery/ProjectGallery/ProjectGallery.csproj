@@ -13,6 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\MemoryGame\MemoryGame.csproj" />
     <ProjectReference Include="..\Tic-Tac-Toe\Tic-Tac-Toe.csproj" />
   </ItemGroup>
 

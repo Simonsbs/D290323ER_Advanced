@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectGallery", "ProjectGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tic-Tac-Toe", "Tic-Tac-Toe\Tic-Tac-Toe.csproj", "{26E5ECDA-C5B6-430E-AE43-45B105777983}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryGame", "MemoryGame\MemoryGame.csproj", "{B686CDCC-B4CF-49DB-AF2B-745D941BF4BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{26E5ECDA-C5B6-430E-AE43-45B105777983}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E5ECDA-C5B6-430E-AE43-45B105777983}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26E5ECDA-C5B6-430E-AE43-45B105777983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B686CDCC-B4CF-49DB-AF2B-745D941BF4BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B686CDCC-B4CF-49DB-AF2B-745D941BF4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B686CDCC-B4CF-49DB-AF2B-745D941BF4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B686CDCC-B4CF-49DB-AF2B-745D941BF4BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
