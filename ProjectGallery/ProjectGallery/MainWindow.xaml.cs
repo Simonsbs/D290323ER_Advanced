@@ -28,6 +28,8 @@ public partial class MainWindow : Window {
 	}
 
 	private void InitializeProjectButtons() {
+		int i = 0;
+
 		foreach (var project in projects) {
 			//Button button = new Button() {
 			//	Width = 100,
@@ -52,7 +54,7 @@ public partial class MainWindow : Window {
 			
 			//button.Content = pnl;
 
-			ProjectButton button = new ProjectButton {
+			ProjectButton button = new ProjectButton($"Project {++i}") {
 				Margin = new Thickness(10),
 				Width = 100,
 				Height = 130

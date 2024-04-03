@@ -18,7 +18,13 @@ namespace ProjectGallery.Controls;
 /// Interaction logic for ProjectButton.xaml
 /// </summary>
 public partial class ProjectButton : UserControl {
-	public ProjectButton() {
+	public string Text { get; set; }
+
+	public ProjectButton(string text) {
 		InitializeComponent();
+		
+		DataContext = this;
+
+		Text = text;
 	}
 }

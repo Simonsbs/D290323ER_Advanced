@@ -9,7 +9,7 @@
     <Button>
 		<StackPanel Orientation="Vertical">
             <Image Source="../Resources/Plus.png" Width="50" Height="50" />
-            <TextBlock Text="Button" TextAlignment="Center" />
+            <TextBlock Text="{Binding Text}" TextAlignment="Center" />
 		</StackPanel>
     </Button>
 </UserControl>
