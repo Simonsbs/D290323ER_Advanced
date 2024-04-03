@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tic_Tac_Toe"
+        xmlns:controls="clr-namespace:Tic_Tac_Toe.Controls"
         mc:Ignorable="d"
         Title="Tic Tac Toe" Height="450" Width="800" WindowStartupLocation="CenterOwner">
     <Grid>
+		<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
 
+		<controls:Board Grid.Column="0" /> 
+
+		<StackPanel Grid.Column="1" Margin="10">
+			<TextBlock Text="Tic-Tac-Toe Game" FontSize="24" FontWeight="Bold" Margin="10" />
+            <TextBlock Text="This is my version of the" Margin="10 10 10 0" />
+			<TextBlock Text="classic tic-tac-toe game, Enjoy!" Margin="10 0 10 10"/>
+
+            <TextBlock Text="Scores:" Margin="10 10 10 0" FontWeight="Bold" />
+			<TextBlock Text="Player 1: 0" Margin="10 0 10 0" FontWeight="Bold" />
+			<TextBlock Text="Player 2: 0" Margin="10 0 10 20" FontWeight="Bold" />
+
+			<Button Content="PvP (Player Vs Player)" Margin="10" />
+			<Button Content="PvC (Player Vs Computer)" Margin="10 0 10 0" />
+			<Button Content="CvC (Computer Vs Computer)" Margin="10" />
+
+            <Button Content="Exit" Margin="10 20 10 10" />
+		</StackPanel>
     </Grid>
 </Window>
