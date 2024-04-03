@@ -9,6 +9,6 @@
 	<StackPanel>
         <TextBlock Text="This is my Project Gallery" FontSize="30" TextAlignment="Center" Margin="10" />
         <TextBlock Text="This project showcases my talents and a few of my applications, Enjoy!" TextAlignment="Center" />
-		<WrapPanel Margin="10" HorizontalAlignment="Center" Name="ProjectsPanel" />
+		<WrapPanel Margin="10" HorizontalAlignment="Center" Name="ProjectsWrapPanel" />
 	</StackPanel>
 </Window>

@@ -3,21 +3,10 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Tic_Tac_Toe</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\Plus.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Tic-Tac-Toe\Tic-Tac-Toe.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\Plus.png" />
-  </ItemGroup>
 
 </Project>

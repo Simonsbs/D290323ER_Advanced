@@ -9,17 +9,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ProjectGallery.Controls;
+using Tic_Tac_Toe;
 
 namespace ProjectGallery;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
 public partial class MainWindow : Window {
-	private object[] projects = new[] {
-		new object(),
-		new object(),
-		new object(),
-		new object()
+	private Project[] projects = new[] {
+		new Project(),
+		new Project(),
+		new Project()
 	};
 
 	public MainWindow() {
@@ -54,12 +54,12 @@ public partial class MainWindow : Window {
 			
 			//button.Content = pnl;
 
-			ProjectButton button = new ProjectButton($"Project {++i}") {
+			ProjectButton button = new ProjectButton(project.Name) {
 				Margin = new Thickness(10),
 				Width = 100,
 				Height = 130
 			};
-			ProjectsPanel.Children.Add(button);
+			ProjectsWrapPanel.Children.Add(button);
 		}
 	}
 }
