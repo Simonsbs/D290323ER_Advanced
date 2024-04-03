@@ -8,7 +8,7 @@
              d:DesignHeight="100" d:DesignWidth="100">
     <Button Name="MainButton">
 		<StackPanel Orientation="Vertical">
-            <Image Source="{Binding Icon}" Width="50" Height="50" />
+            <Image Source="{Binding Icon}" Width="80" Height="80" />
             <TextBlock Text="{Binding Name}" TextAlignment="Center" />
 		</StackPanel>
     </Button>
