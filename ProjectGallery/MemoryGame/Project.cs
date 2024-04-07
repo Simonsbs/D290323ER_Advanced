@@ -16,7 +16,7 @@ public class Project : IProjectMeta {
 			//return new BitmapImage(new Uri($"{AppDomain.CurrentDomain.BaseDirectory}/Resources/Main.png", UriKind.Absolute));
 
 			string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
-			Uri uri = new Uri($"pack://application:,,,/{assemblyName};component/Resources/Plus.png");
+			Uri uri = new Uri($"pack://application:,,,/{assemblyName};component/Resources/Main.png");
 
 			return new BitmapImage(uri);
 		}
