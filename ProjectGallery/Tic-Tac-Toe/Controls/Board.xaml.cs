@@ -50,7 +50,7 @@ public partial class Board : UserControl {
 	}
 
 	private void Button_Click(object sender, RoutedEventArgs e) {
-		if (!_gameIsActive) {
+		if (!_gameIsActive || (_gameType == GameType.PvC && !_isPlayerOneTurn) || _gameType == GameType.CvC) {
 			return;
 		}
 
