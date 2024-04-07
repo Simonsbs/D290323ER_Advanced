@@ -21,6 +21,7 @@ public partial class MainWindow : Window {
 
 	private void NewGame_Click(object sender, RoutedEventArgs e) {
 		GameType gameType;
+
 		if (sender == Btn_PvP) {
 			gameType = GameType.PvP;
 		} else if (sender == Btn_PvC) {
