@@ -13,7 +13,7 @@
             <ColumnDefinition Width="*" />
 		</Grid.ColumnDefinitions>
 
-		<controls:Board Grid.Column="0" /> 
+		<controls:Board Grid.Column="0" x:Name="MyBoard" /> 
 
 		<StackPanel Grid.Column="1" Margin="10">
 			<TextBlock Text="Tic-Tac-Toe Game" FontSize="24" FontWeight="Bold" Margin="10" />
@@ -24,9 +24,9 @@
 			<TextBlock Text="Player 1: 0" Margin="10 0 10 0" FontWeight="Bold" />
 			<TextBlock Text="Player 2: 0" Margin="10 0 10 20" FontWeight="Bold" />
 
-			<Button Content="PvP (Player Vs Player)" Margin="10" />
-			<Button Content="PvC (Player Vs Computer)" Margin="10 0 10 0" />
-			<Button Content="CvC (Computer Vs Computer)" Margin="10" />
+			<Button Content="PvP (Player Vs Player)" Margin="10" Click="NewGame_Click" Name="Btn_PvP" />
+			<Button Content="PvC (Player Vs Computer)" Margin="10 0 10 0" Click="NewGame_Click" Name="Btn_PvC"/>
+			<Button Content="CvC (Computer Vs Computer)" Margin="10" Click="NewGame_Click" Name="Btn_CvC"/>
 
             <Button Content="Exit" Margin="10 20 10 10" />
 		</StackPanel>

@@ -12,13 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tic_Tac_Toe.Enums;
 
 namespace Tic_Tac_Toe.Controls;
 /// <summary>
 /// Interaction logic for Board.xaml
 /// </summary>
 public partial class Board : UserControl {
+	public EventHandler GameEnded;
+	
 	private readonly Button[,] buttons = new Button[3,3];
+
+	private bool isPlayerOneTurn = true;
+
 
 	public Board() {
 		InitializeComponent();
@@ -52,5 +58,8 @@ public partial class Board : UserControl {
 
 	private void Button_Click(object sender, RoutedEventArgs e) {
 
+	}
+
+	public void StartNewGame(GameType gameType) {
 	}
 }
