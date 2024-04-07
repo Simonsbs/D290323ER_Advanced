@@ -98,6 +98,10 @@ public partial class Board : UserControl {
 			}
 
 			_isPlayerOneTurn = !_isPlayerOneTurn;
+
+			if (_gameType == GameType.CvC && !IsBoardFull()) {
+				ComputerMove();
+			}
 		};
 		timer.Start();
 	}
@@ -132,6 +136,10 @@ public partial class Board : UserControl {
 
 		foreach (Button btn in _buttons) {
 			btn.Content = null;
+		}
+
+		if (_gameType == GameType.CvC) {
+			ComputerMove();
 		}
 	}
 
