@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 using Tic_Tac_Toe.Enums;
 
 namespace Tic_Tac_Toe.Controls;
@@ -76,21 +77,29 @@ public partial class Board : UserControl {
 	}
 
 	private void ComputerMove() {
-		// randomly find an empty button
-		Button btn;
-		do {
-			int row = _rnd.Next(3);
-			int col = _rnd.Next(3);
-			btn = _buttons[row, col];
-		} while (btn.Content != null);
+		DispatcherTimer timer = new DispatcherTimer() {
+			Interval = TimeSpan.FromSeconds(_rnd.Next(10) / 10.0)
+		};
+		timer.Tick += (sender, e) => {
+			timer.Stop();
+
+			// randomly find an empty button
+			Button btn;
+			do {
+				int row = _rnd.Next(3);
+				int col = _rnd.Next(3);
+				btn = _buttons[row, col];
+			} while (btn.Content != null);
 
 
-		btn.Content = _isPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
-		if (ProcessEndGame()) {
-			return;
-		}
+			btn.Content = _isPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
+			if (ProcessEndGame()) {
+				return;
+			}
 
-		_isPlayerOneTurn = !_isPlayerOneTurn;
+			_isPlayerOneTurn = !_isPlayerOneTurn;
+		};
+		timer.Start();
 	}
 
 	private bool ProcessEndGame() {
