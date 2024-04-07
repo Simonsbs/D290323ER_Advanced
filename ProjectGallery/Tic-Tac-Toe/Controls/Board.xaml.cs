@@ -13,16 +13,44 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tic_Tac_Toe.Controls
-{
-    /// <summary>
-    /// Interaction logic for Board.xaml
-    /// </summary>
-    public partial class Board : UserControl
-    {
-        public Board()
-        {
-            InitializeComponent();
-        }
-    }
+namespace Tic_Tac_Toe.Controls;
+/// <summary>
+/// Interaction logic for Board.xaml
+/// </summary>
+public partial class Board : UserControl {
+	private readonly Button[,] buttons = new Button[3,3];
+
+	public Board() {
+		InitializeComponent();
+		InitializeGameGrid();
+	}
+
+
+	private void InitializeGameGrid() {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				Button btn = new Button() {
+					FontSize = 40,
+					FontWeight = FontWeights.Bold,
+					HorizontalAlignment = HorizontalAlignment.Center,
+					VerticalAlignment = VerticalAlignment.Center,
+					Margin = new Thickness(5),
+					Content = "X"
+				};
+
+				btn.Click += Button_Click;
+
+				Grid.SetRow(btn, i);
+				Grid.SetColumn(btn, j);
+
+				buttons[i, j] = btn;
+
+				GameGrid.Children.Add(btn);
+			}
+		}
+	}
+
+	private void Button_Click(object sender, RoutedEventArgs e) {
+
+	}
 }
