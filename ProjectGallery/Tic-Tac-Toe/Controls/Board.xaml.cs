@@ -52,9 +52,33 @@ public partial class Board : UserControl {
 
 		if (btn.Content == null) {
 			btn.Content = _isPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
-			
+
+			if (ProcessEndGame()) {
+				return;
+			}
+
 			_isPlayerOneTurn = !_isPlayerOneTurn;
 		}
+	}
+
+	private bool ProcessEndGame() {
+		if (CheckForWinner()) {
+			GameResult result = _isPlayerOneTurn ? GameResult.PlayerOneWins : GameResult.PlayerTwoWins;
+
+			MessageBox.Show(result.ToString());
+
+			return true;
+		} 
+		
+		if (IsBoardFull()) {
+			GameResult result = GameResult.Draw;
+
+			MessageBox.Show(result.ToString());
+
+			return true;
+		}
+
+		return false;
 	}
 
 	public void StartNewGame(GameType gameType) {
