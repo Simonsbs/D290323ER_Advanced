@@ -14,8 +14,12 @@ public partial class Board : UserControl {
 
 	private readonly Button[,] _buttons = new Button[3, 3];
 
+	private readonly Random _rnd = new Random();
+
 	private bool _isPlayerOneTurn = true;
+	private bool _gameIsActive = true;
 	private GameType _gameType;
+
 
 	public Board() {
 		InitializeComponent();
@@ -45,6 +49,10 @@ public partial class Board : UserControl {
 	}
 
 	private void Button_Click(object sender, RoutedEventArgs e) {
+		if (!_gameIsActive) {
+			return;
+		}
+
 		Button btn = sender as Button;
 		if (btn == null) {
 			return;
@@ -58,7 +66,31 @@ public partial class Board : UserControl {
 			}
 
 			_isPlayerOneTurn = !_isPlayerOneTurn;
+
+
+			// After human - let the computer take a turn
+			if (_gameType == GameType.PvC && !_isPlayerOneTurn) {
+				ComputerMove();
+			}
 		}
+	}
+
+	private void ComputerMove() {
+		// randomly find an empty button
+		Button btn;
+		do {
+			int row = _rnd.Next(3);
+			int col = _rnd.Next(3);
+			btn = _buttons[row, col];
+		} while (btn.Content != null);
+
+
+		btn.Content = _isPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
+		if (ProcessEndGame()) {
+			return;
+		}
+
+		_isPlayerOneTurn = !_isPlayerOneTurn;
 	}
 
 	private bool ProcessEndGame() {
@@ -67,6 +99,7 @@ public partial class Board : UserControl {
 
 			MessageBox.Show(result.ToString());
 
+			_gameIsActive = false;
 			return true;
 		} 
 		
@@ -75,6 +108,7 @@ public partial class Board : UserControl {
 
 			MessageBox.Show(result.ToString());
 
+			_gameIsActive = false;
 			return true;
 		}
 
@@ -83,8 +117,13 @@ public partial class Board : UserControl {
 
 	public void StartNewGame(GameType gameType) {
 		_gameType = gameType;
+		
 		_isPlayerOneTurn = true;
+		_gameIsActive = true;
 
+		foreach (Button btn in _buttons) {
+			btn.Content = null;
+		}
 	}
 
 	private bool IsBoardFull() {
