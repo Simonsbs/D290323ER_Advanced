@@ -10,13 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Main.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Resources\Main.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <Resource Include="Resources\Main.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
