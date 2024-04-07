@@ -8,8 +8,11 @@ namespace Tic_Tac_Toe.Controls;
 /// </summary>
 public partial class Board : UserControl {
 	public EventHandler GameEnded;
-	
-	private readonly Button[,] _buttons = new Button[3,3];
+
+	private const string PlayerOneContent = "X";
+	private const string PlayerTwoContent = "O";
+
+	private readonly Button[,] _buttons = new Button[3, 3];
 
 	private bool _isPlayerOneTurn = true;
 	private GameType _gameType;
@@ -26,10 +29,7 @@ public partial class Board : UserControl {
 				Button btn = new Button() {
 					FontSize = 40,
 					FontWeight = FontWeights.Bold,
-					HorizontalAlignment = HorizontalAlignment.Center,
-					VerticalAlignment = VerticalAlignment.Center,
-					Margin = new Thickness(5),
-					Content = "X"
+					Margin = new Thickness(5)
 				};
 
 				btn.Click += Button_Click;
@@ -45,7 +45,16 @@ public partial class Board : UserControl {
 	}
 
 	private void Button_Click(object sender, RoutedEventArgs e) {
+		Button btn = sender as Button;
+		if (btn == null) {
+			return;
+		}
 
+		if (btn.Content == null) {
+			btn.Content = _isPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
+			
+			_isPlayerOneTurn = !_isPlayerOneTurn;
+		}
 	}
 
 	public void StartNewGame(GameType gameType) {
@@ -66,14 +75,18 @@ public partial class Board : UserControl {
 
 	private bool CheckForWinner() {
 		for (int i = 0; i < 3; i++) {
-			if (AreButtonsEqual(_buttons[i,0], _buttons[i, 1], _buttons[i,2])) {
+			// Check Row
+			if (AreButtonsEqual(_buttons[i, 0], _buttons[i, 1], _buttons[i, 2])) {
 				return true;
 			}
+
+			// Check Column
 			if (AreButtonsEqual(_buttons[0, i], _buttons[1, i], _buttons[2, i])) {
 				return true;
 			}
 		}
 
+		//Check Diagonals
 		if (AreButtonsEqual(_buttons[0, 0], _buttons[1, 1], _buttons[2, 2])) {
 			return true;
 		}
@@ -84,7 +97,7 @@ public partial class Board : UserControl {
 		return false;
 	}
 
-	private bool AreButtonsEqual(Button b1, Button b2, Button b3) {
-		return b1.Content != null && b1.Content == b2.Content && b2.Content == b3.Content;
-	}
+	private bool AreButtonsEqual(Button b1, Button b2, Button b3) =>
+		 b1.Content != null && b1.Content == b2.Content && b2.Content == b3.Content;
+
 }
