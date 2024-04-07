@@ -19,7 +19,7 @@ public partial class Board : UserControl {
 
 	private bool _isPlayerOneTurn = true;
 	private bool _gameIsActive = true;
-	private GameType _gameType;
+	private GameType _gameType = GameType.PvP;
 
 
 	public Board() {
