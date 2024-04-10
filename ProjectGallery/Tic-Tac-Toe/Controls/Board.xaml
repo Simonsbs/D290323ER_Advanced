@@ -41,7 +41,7 @@
 
 			<StackPanel>
 				<TextBlock Text="Current Turn:" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
-				<TextBlock Text="Player 1" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+				<TextBlock Text="{Binding CurrentPlayerTurn}" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
 			</StackPanel>
 		</Border>
 

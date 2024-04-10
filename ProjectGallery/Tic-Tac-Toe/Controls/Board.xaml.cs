@@ -11,7 +11,7 @@ namespace Tic_Tac_Toe.Controls;
 public partial class Board : UserControl, INotifyPropertyChanged {
 	public event PropertyChangedEventHandler? PropertyChanged;
 
-	public EventHandler GameEnded;
+	public EventHandler<GameEndEventArgs> GameEnded;
 
 	private const string PlayerOneContent = "X";
 	private const string PlayerTwoContent = "O";
@@ -35,10 +35,23 @@ public partial class Board : UserControl, INotifyPropertyChanged {
 		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 	}
 
-	public GameType CurrentGameType {
-		get {
-			return _gameType;
+	private void OnGameEnd(GameResult result) {
+		GameEnded?.Invoke(this, new GameEndEventArgs(result));
+	}
+
+	public bool IsPlayerOneTurn {
+		get => _isPlayerOneTurn;
+		set {
+			_isPlayerOneTurn = value;
+			//OnPropertyChanged(nameof(IsPlayerOneTurn));
+			OnPropertyChanged(nameof(CurrentPlayerTurn));
 		}
+	}
+
+	public string CurrentPlayerTurn => IsPlayerOneTurn ? $"Player 1 ({PlayerOneContent})" : $"Player 2 ({PlayerTwoContent})";
+
+	public GameType CurrentGameType {
+		get => _gameType;
 		set {
 			_gameType = value;
 			OnPropertyChanged(nameof(CurrentGameType));
@@ -67,7 +80,7 @@ public partial class Board : UserControl, INotifyPropertyChanged {
 	}
 
 	private void Button_Click(object sender, RoutedEventArgs e) {
-		if (!_gameIsActive || (CurrentGameType == GameType.PvC && !_isPlayerOneTurn) || CurrentGameType == GameType.CvC) {
+		if (!_gameIsActive || (CurrentGameType == GameType.PvC && !IsPlayerOneTurn) || CurrentGameType == GameType.CvC) {
 			return;
 		}
 
@@ -77,17 +90,17 @@ public partial class Board : UserControl, INotifyPropertyChanged {
 		}
 
 		if (btn.Content == null) {
-			btn.Content = _isPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
+			btn.Content = IsPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
 
 			if (ProcessEndGame()) {
 				return;
 			}
 
-			_isPlayerOneTurn = !_isPlayerOneTurn;
+			IsPlayerOneTurn = !IsPlayerOneTurn;
 
 
 			// After human - let the computer take a turn
-			if (CurrentGameType == GameType.PvC && !_isPlayerOneTurn) {
+			if (CurrentGameType == GameType.PvC && !IsPlayerOneTurn) {
 				ComputerMove();
 			}
 		}
@@ -109,12 +122,12 @@ public partial class Board : UserControl, INotifyPropertyChanged {
 			} while (btn.Content != null);
 
 
-			btn.Content = _isPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
+			btn.Content = IsPlayerOneTurn ? PlayerOneContent : PlayerTwoContent;
 			if (ProcessEndGame()) {
 				return;
 			}
 
-			_isPlayerOneTurn = !_isPlayerOneTurn;
+			IsPlayerOneTurn = !IsPlayerOneTurn;
 
 			if (CurrentGameType == GameType.CvC && !IsBoardFull()) {
 				ComputerMove();
@@ -125,9 +138,11 @@ public partial class Board : UserControl, INotifyPropertyChanged {
 
 	private bool ProcessEndGame() {
 		if (CheckForWinner()) {
-			GameResult result = _isPlayerOneTurn ? GameResult.PlayerOneWins : GameResult.PlayerTwoWins;
+			GameResult result = IsPlayerOneTurn ? GameResult.PlayerOneWins : GameResult.PlayerTwoWins;
 
-			MessageBox.Show(result.ToString());
+			//MessageBox.Show(result.ToString());
+
+			OnGameEnd(result);
 
 			_gameIsActive = false;
 			return true;
@@ -136,7 +151,8 @@ public partial class Board : UserControl, INotifyPropertyChanged {
 		if (IsBoardFull()) {
 			GameResult result = GameResult.Draw;
 
-			MessageBox.Show(result.ToString());
+			//MessageBox.Show(result.ToString());
+			OnGameEnd(result);
 
 			_gameIsActive = false;
 			return true;
@@ -146,9 +162,13 @@ public partial class Board : UserControl, INotifyPropertyChanged {
 	}
 
 	public void StartNewGame(GameType gameType) {
+		if (_gameIsActive) {
+			return;
+		}
+
 		CurrentGameType = gameType;
 
-		_isPlayerOneTurn = true;
+		IsPlayerOneTurn = true;
 		_gameIsActive = true;
 
 		foreach (Button btn in _buttons) {

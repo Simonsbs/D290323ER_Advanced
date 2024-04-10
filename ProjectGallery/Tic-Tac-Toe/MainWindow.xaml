@@ -21,7 +21,7 @@
 			<TextBlock Text="classic tic-tac-toe game, Enjoy!" Margin="10 0 10 10"/>
 
             <TextBlock Text="Scores:" Margin="10 10 10 0" FontWeight="Bold" />
-			<TextBlock Text="Player 1: 0" Margin="10 0 10 0" FontWeight="Bold" />
+			<TextBlock Text="Player 1: {Binding PlayerOneScore}" Margin="10 0 10 0" FontWeight="Bold" />
 			<TextBlock Text="Player 2: 0" Margin="10 0 10 20" FontWeight="Bold" />
 
 			<Button Content="PvP (Player Vs Player)" Margin="10" Click="NewGame_Click" Name="Btn_PvP" />
