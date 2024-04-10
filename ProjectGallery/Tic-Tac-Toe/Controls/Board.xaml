@@ -6,18 +6,54 @@
              xmlns:local="clr-namespace:Tic_Tac_Toe.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-	<Grid Name="GameGrid">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="*" />
-			<ColumnDefinition Width="*" />
-		</Grid.ColumnDefinitions>
+
+	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="*" />
-			<RowDefinition Height="*" />
+			<RowDefinition Height="100" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
 
-		
+		<Border Grid.Row="0" Grid.Column="0"
+		        Background="White" 
+		        Margin="10" 
+		        Padding="10"
+		        BorderBrush="LawnGreen" 
+		        BorderThickness="3" 
+		        CornerRadius="10">
+		</Border>
+
+		<Border Grid.Row="0" Grid.Column="1"
+		        Background="White" 
+		        Margin="10" 
+		        Padding="10"
+		        BorderBrush="LawnGreen" 
+		        BorderThickness="3" 
+		        CornerRadius="10">
+		</Border>
+
+		<Border Grid.Row="1" Grid.ColumnSpan="2"
+		        Background="White" 
+		        Margin="10" 
+				Padding="10"
+		        BorderBrush="Blue" 
+		        BorderThickness="3" 
+		        CornerRadius="10">
+			<Grid Name="GameGrid">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+			</Grid>
+		</Border>
 	</Grid>
 </UserControl>
