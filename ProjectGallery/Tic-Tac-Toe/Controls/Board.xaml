@@ -18,7 +18,7 @@
 		</Grid.ColumnDefinitions>
 
 		<Border Grid.Row="0" Grid.Column="0"
-		        Background="White" 
+		        Background="Beige" 
 		        Margin="10" 
 		        Padding="10"
 		        BorderBrush="LawnGreen" 
@@ -27,7 +27,7 @@
 		</Border>
 
 		<Border Grid.Row="0" Grid.Column="1"
-		        Background="White" 
+		        Background="Beige" 
 		        Margin="10" 
 		        Padding="10"
 		        BorderBrush="LawnGreen" 
@@ -35,8 +35,10 @@
 		        CornerRadius="10">
 		</Border>
 
-		<Border Grid.Row="1" Grid.ColumnSpan="2"
-		        Background="White" 
+		<Border Grid.Row="1" 
+		        Grid.Column="0" 
+		        Grid.ColumnSpan="2"
+		        Background="BurlyWood" 
 		        Margin="10" 
 				Padding="10"
 		        BorderBrush="Blue" 
