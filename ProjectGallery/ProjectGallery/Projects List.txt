@@ -39,4 +39,4 @@
 1)	אפליקציית מזג אוויר
 2)	פוקדקס – Pokedex
 3)	Countries API
-4)	Star-Wars AP
+4)	Star-Wars API
