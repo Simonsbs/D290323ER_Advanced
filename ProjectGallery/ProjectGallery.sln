@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectGallery", "ProjectGallery\ProjectGallery.csproj", "{485BB1E9-1158-489A-9891-A2DA4E471438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectGallery", "ProjectGallery\ProjectGallery.csproj", "{485BB1E9-1158-489A-9891-A2DA4E471438}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tic-Tac-Toe", "Tic-Tac-Toe\Tic-Tac-Toe.csproj", "{26E5ECDA-C5B6-430E-AE43-45B105777983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tic-Tac-Toe", "Tic-Tac-Toe\Tic-Tac-Toe.csproj", "{26E5ECDA-C5B6-430E-AE43-45B105777983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryGame", "MemoryGame\MemoryGame.csproj", "{B686CDCC-B4CF-49DB-AF2B-745D941BF4BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryGame", "MemoryGame\MemoryGame.csproj", "{B686CDCC-B4CF-49DB-AF2B-745D941BF4BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonManager", "PersonManager\PersonManager.csproj", "{EC007E57-AA75-4251-A185-8F9983048C23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC007E57-AA75-4251-A185-8F9983048C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC007E57-AA75-4251-A185-8F9983048C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC007E57-AA75-4251-A185-8F9983048C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC007E57-AA75-4251-A185-8F9983048C23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

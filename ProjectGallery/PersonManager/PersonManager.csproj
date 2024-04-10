@@ -9,10 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Main.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\MemoryGame\MemoryGame.csproj" />
-    <ProjectReference Include="..\PersonManager\PersonManager.csproj" />
-    <ProjectReference Include="..\Tic-Tac-Toe\Tic-Tac-Toe.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Main.png" />
   </ItemGroup>
 
 </Project>

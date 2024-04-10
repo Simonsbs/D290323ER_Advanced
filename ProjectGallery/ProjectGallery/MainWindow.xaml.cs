@@ -17,8 +17,8 @@ namespace ProjectGallery;
 /// </summary>
 public partial class MainWindow : Window {
 	private IProjectMeta[] projects = new IProjectMeta[] {
-		new MemoryGame.Project(),
-		new Tic_Tac_Toe.Project()
+		new Tic_Tac_Toe.Project(),
+		new PersonManager.Project()
 	};
 
 	public MainWindow() {
