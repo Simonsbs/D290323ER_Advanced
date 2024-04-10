@@ -7,6 +7,29 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="2*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
 
+		<DataGrid AutoGenerateColumns="False" Grid.Column="0" Margin="10">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Width="*"/>
+				<DataGridTextColumn Header="Name" Width="*"/>
+				<DataGridTextColumn Header="Age" Width="*"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<StackPanel Grid.Column="1">
+			<Label Content="ID:" Margin="6 0 10 0"/>
+			<TextBox Name="TB_ID" Margin="10 0 10 0"/>
+			<Label Content="Name:" Margin="6 0 10 0"/>
+			<TextBox Name="TB_Name" Margin="10 0 10 0"/>
+			<Label Content="Age:" Margin="6 0 10 0"/>
+			<TextBox Name="TB_Age" Margin="10 0 10 0"/>
+
+			<Button Name="Btn_Add" Content="Add" Margin="10 20 10 0" />
+			<Button Name="Btn_Update" Content="Update" Margin="10 10 10 0" />
+		</StackPanel>
     </Grid>
 </Window>

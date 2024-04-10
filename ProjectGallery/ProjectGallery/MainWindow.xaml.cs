@@ -27,7 +27,7 @@ public partial class MainWindow : Window {
 	}
 
 	private void InitializeProjectButtons() {
-		int i = 0;
+		//int i = 0;
 
 		foreach (var project in projects) {
 			//Button button = new Button() {
