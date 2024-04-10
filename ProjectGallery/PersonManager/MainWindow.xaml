@@ -12,11 +12,11 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 
-		<DataGrid AutoGenerateColumns="False" Grid.Column="0" Margin="10">
+		<DataGrid AutoGenerateColumns="False" Grid.Column="0" Margin="10" Name="PeopleDataGrid">
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="ID" Width="*"/>
-				<DataGridTextColumn Header="Name" Width="*"/>
-				<DataGridTextColumn Header="Age" Width="*"/>
+				<DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
+				<DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
+				<DataGridTextColumn Header="Age" Width="*" Binding="{Binding Age}"/>
 			</DataGrid.Columns>
 		</DataGrid>
 

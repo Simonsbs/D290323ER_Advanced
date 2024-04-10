@@ -11,6 +11,8 @@ public partial class MainWindow : Window {
 	public MainWindow() {
 		InitializeComponent();
 
+		PeopleDataGrid.ItemsSource = People;
+
 		LoadData();
 	}
 
