@@ -19,12 +19,15 @@ namespace Tic_Tac_Toe;
 public partial class MainWindow : Window, INotifyPropertyChanged {
 	private int playerOneScore = 0;
 	private int playerTwoScore = 0;
+	private string endGameState;
 
 	public event PropertyChangedEventHandler? PropertyChanged;
 	public MainWindow() {
 		InitializeComponent();
 
 		MyBoard.GameEnded += HandleGameEnded;
+
+		DataContext = this;
 	}
 
 	private void OnPropertyChanged(string name) {
@@ -35,10 +38,23 @@ public partial class MainWindow : Window, INotifyPropertyChanged {
 		switch (e.GameResult) {
 			case GameResult.PlayerOneWins:
 				PlayerOneScore++;
+				EndGameState = "Player 1 won!";
 				break;
 			case GameResult.PlayerTwoWins:
 				PlayerTwoScore++;
+				EndGameState = "Player 2 won!";
 				break;
+			case GameResult.Draw:
+				EndGameState = "Draw!";
+				break;
+		}
+	}
+
+	public string EndGameState {
+		get => endGameState; 
+		set {
+			endGameState = value;
+			OnPropertyChanged(nameof(EndGameState));
 		}
 	}
 
