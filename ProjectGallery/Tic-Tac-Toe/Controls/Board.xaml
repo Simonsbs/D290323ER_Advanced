@@ -9,7 +9,7 @@
 
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="100" />
+			<RowDefinition Height="Auto" />
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
@@ -24,6 +24,11 @@
 		        BorderBrush="LawnGreen" 
 		        BorderThickness="3" 
 		        CornerRadius="10">
+
+			<StackPanel>
+				<TextBlock Text="Game Mode:" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+				<TextBlock Text="{Binding CurrentGameType}" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+			</StackPanel>
 		</Border>
 
 		<Border Grid.Row="0" Grid.Column="1"
@@ -33,6 +38,11 @@
 		        BorderBrush="LawnGreen" 
 		        BorderThickness="3" 
 		        CornerRadius="10">
+
+			<StackPanel>
+				<TextBlock Text="Current Turn:" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+				<TextBlock Text="Player 1" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+			</StackPanel>
 		</Border>
 
 		<Border Grid.Row="1" 

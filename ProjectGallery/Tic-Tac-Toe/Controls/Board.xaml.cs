@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using Tic_Tac_Toe.Enums;
@@ -7,7 +8,9 @@ namespace Tic_Tac_Toe.Controls;
 /// <summary>
 /// Interaction logic for Board.xaml
 /// </summary>
-public partial class Board : UserControl {
+public partial class Board : UserControl, INotifyPropertyChanged {
+	public event PropertyChangedEventHandler? PropertyChanged;
+
 	public EventHandler GameEnded;
 
 	private const string PlayerOneContent = "X";
@@ -21,12 +24,26 @@ public partial class Board : UserControl {
 	private bool _gameIsActive = true;
 	private GameType _gameType = GameType.PvP;
 
-
 	public Board() {
 		InitializeComponent();
 		InitializeGameGrid();
+
+		DataContext = this;
 	}
 
+	private void OnPropertyChanged(string name) {
+		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+	}
+
+	public GameType CurrentGameType {
+		get {
+			return _gameType;
+		}
+		set {
+			_gameType = value;
+			OnPropertyChanged(nameof(CurrentGameType));
+		}
+	}
 
 	private void InitializeGameGrid() {
 		for (int i = 0; i < 3; i++) {
@@ -50,7 +67,7 @@ public partial class Board : UserControl {
 	}
 
 	private void Button_Click(object sender, RoutedEventArgs e) {
-		if (!_gameIsActive || (_gameType == GameType.PvC && !_isPlayerOneTurn) || _gameType == GameType.CvC) {
+		if (!_gameIsActive || (CurrentGameType == GameType.PvC && !_isPlayerOneTurn) || CurrentGameType == GameType.CvC) {
 			return;
 		}
 
@@ -70,7 +87,7 @@ public partial class Board : UserControl {
 
 
 			// After human - let the computer take a turn
-			if (_gameType == GameType.PvC && !_isPlayerOneTurn) {
+			if (CurrentGameType == GameType.PvC && !_isPlayerOneTurn) {
 				ComputerMove();
 			}
 		}
@@ -99,7 +116,7 @@ public partial class Board : UserControl {
 
 			_isPlayerOneTurn = !_isPlayerOneTurn;
 
-			if (_gameType == GameType.CvC && !IsBoardFull()) {
+			if (CurrentGameType == GameType.CvC && !IsBoardFull()) {
 				ComputerMove();
 			}
 		};
@@ -114,8 +131,8 @@ public partial class Board : UserControl {
 
 			_gameIsActive = false;
 			return true;
-		} 
-		
+		}
+
 		if (IsBoardFull()) {
 			GameResult result = GameResult.Draw;
 
@@ -129,8 +146,8 @@ public partial class Board : UserControl {
 	}
 
 	public void StartNewGame(GameType gameType) {
-		_gameType = gameType;
-		
+		CurrentGameType = gameType;
+
 		_isPlayerOneTurn = true;
 		_gameIsActive = true;
 
@@ -138,7 +155,7 @@ public partial class Board : UserControl {
 			btn.Content = null;
 		}
 
-		if (_gameType == GameType.CvC) {
+		if (CurrentGameType == GameType.CvC) {
 			ComputerMove();
 		}
 	}
