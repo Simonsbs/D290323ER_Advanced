@@ -96,6 +96,9 @@ public partial class MainWindow : Window {
 	
 	private void HandleFilterKeyUp(object sender, KeyEventArgs e) {
 		string filterString = TB_Filter.Text.ToLower();
+		if (filterString == "filter...") {
+			return;
+		}
 
 		peopleView.Filter = o => {
 			if (o is Person personToFilter) {
