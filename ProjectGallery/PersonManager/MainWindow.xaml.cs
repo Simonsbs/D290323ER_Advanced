@@ -30,6 +30,28 @@ public partial class MainWindow : Window {
 		}
 	}
 
+	private void HandleAddClick(object sender, RoutedEventArgs e) {
+		if (int.TryParse(TB_ID.Text, out int id) &&
+		    int.TryParse(TB_Age.Text, out int age) &&
+		    TB_Name.Text.Length > 0) {
+
+			Person newPerson = new Person() {
+				ID = GenerateID(),
+				Name = TB_Name.Text,
+				Age = age
+			};
+
+			People.Add(newPerson);
+
+			SaveData();
+			ClearForm();
+		}
+	}
+
+	private int GenerateID() {
+		return People.Count == 0 ? 1 : People.Max(p => p.ID) + 1;
+	}
+
 	public void HandleUpdateClick(object sender, RoutedEventArgs e) {
 		if (PeopleDataGrid.SelectedItem is Person selectedPerson && 
 		    int.TryParse(TB_ID.Text, out int id) && 
@@ -43,7 +65,15 @@ public partial class MainWindow : Window {
 			PeopleDataGrid.Items.Refresh();
 
 			SaveData();
+			ClearForm();
 		}
+	}
+
+	private void ClearForm() {
+		TB_ID.Clear();
+		TB_Name.Clear();
+		TB_Age.Clear();
+		PeopleDataGrid.SelectedItem = null;
 	}
 
 	private void SaveData() {
@@ -74,4 +104,6 @@ public partial class MainWindow : Window {
 		}
 
 	}
+
+	
 }

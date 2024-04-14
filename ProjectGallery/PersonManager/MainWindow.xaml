@@ -12,7 +12,14 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 
-		<DataGrid AutoGenerateColumns="False" Grid.Column="0" Margin="10" Name="PeopleDataGrid" SelectionChanged="HandleSelectionChanged">
+		<DataGrid AutoGenerateColumns="False" 
+		          Grid.Column="0" 
+		          Margin="10" 
+		          Name="PeopleDataGrid" 
+				  IsReadOnly="True"
+				  SelectionMode="Single"
+				  SelectionUnit="FullRow"
+		          SelectionChanged="HandleSelectionChanged">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
 				<DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
@@ -28,7 +35,7 @@
 			<Label Content="Age:" Margin="6 0 10 0"/>
 			<TextBox Name="TB_Age" Margin="10 0 10 0"/>
 
-			<Button Name="Btn_Add" Content="Add" Margin="10 20 10 0" />
+			<Button Name="Btn_Add" Content="Add" Margin="10 20 10 0" Click="HandleAddClick" />
 			<Button Name="Btn_Update" Content="Update" Margin="10 10 10 0" Click="HandleUpdateClick"/>
 		</StackPanel>
     </Grid>
