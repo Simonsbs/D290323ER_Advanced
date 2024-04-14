@@ -84,6 +84,7 @@ public partial class MainWindow : Window {
 		if (btn.DataContext is Person personToDelete) {
 			People.Remove(personToDelete);
 			SaveData();
+			ClearForm();
 		}
 	}
 
