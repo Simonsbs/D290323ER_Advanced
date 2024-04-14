@@ -30,6 +30,31 @@ public partial class MainWindow : Window {
 		}
 	}
 
+	public void HandleUpdateClick(object sender, RoutedEventArgs e) {
+		if (PeopleDataGrid.SelectedItem is Person selectedPerson && 
+		    int.TryParse(TB_ID.Text, out int id) && 
+		    int.TryParse(TB_Age.Text, out int age) &&
+		    TB_Name.Text.Length > 0) {
+
+			selectedPerson.ID = id;
+			selectedPerson.Name = TB_Name.Text;
+			selectedPerson.Age = age;
+
+			PeopleDataGrid.Items.Refresh();
+
+			SaveData();
+		}
+	}
+
+	private void SaveData() {
+		try {
+			string rawData = JsonSerializer.Serialize(People);
+			File.WriteAllText(filePath, rawData);
+		} catch (Exception ex) {
+			MessageBox.Show($"Failed to save data: {ex.Message}");
+		}
+	}
+
 	private void LoadData() {
 		if (!File.Exists(filePath)) {
 			return;

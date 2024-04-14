@@ -29,7 +29,7 @@
 			<TextBox Name="TB_Age" Margin="10 0 10 0"/>
 
 			<Button Name="Btn_Add" Content="Add" Margin="10 20 10 0" />
-			<Button Name="Btn_Update" Content="Update" Margin="10 10 10 0" />
+			<Button Name="Btn_Update" Content="Update" Margin="10 10 10 0" Click="HandleUpdateClick"/>
 		</StackPanel>
     </Grid>
 </Window>
