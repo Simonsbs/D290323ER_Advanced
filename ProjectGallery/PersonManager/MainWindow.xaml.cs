@@ -1,20 +1,26 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
 using PersonManager.Models;
 
 namespace PersonManager;
 
 public partial class MainWindow : Window {
 	private const string filePath = "people.json";
+	private readonly ICollectionView peopleView;
 
 	public MainWindow() {
 		InitializeComponent();
 
-		PeopleDataGrid.ItemsSource = People;
+		peopleView = CollectionViewSource.GetDefaultView(People);
 
+		PeopleDataGrid.ItemsSource = peopleView;
+		
 		LoadData();
 	}
 
@@ -86,6 +92,17 @@ public partial class MainWindow : Window {
 			SaveData();
 			ClearForm();
 		}
+	}
+	
+	private void HandleFilterKeyUp(object sender, KeyEventArgs e) {
+		string filterString = TB_Filter.Text.ToLower();
+
+		peopleView.Filter = o => {
+			if (o is Person personToFilter) {
+				return personToFilter.Name.ToLower().Contains(filterString);
+			}
+			return false;
+		};
 	}
 
 	private void ClearForm() {

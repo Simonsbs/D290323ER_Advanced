@@ -36,6 +36,10 @@
 		</DataGrid>
 
 		<StackPanel Grid.Column="1">
+			<Label Content="Filter:" Margin="6 0 10 0"/>
+			<TextBox Margin="10 0 10 10" KeyUp="HandleFilterKeyUp" Name="TB_Filter"/>
+
+
 			<Label Content="ID:" Margin="6 0 10 0"/>
 			<TextBox Name="TB_ID" Margin="10 0 10 0"/>
 			<Label Content="Name:" Margin="6 0 10 0"/>
