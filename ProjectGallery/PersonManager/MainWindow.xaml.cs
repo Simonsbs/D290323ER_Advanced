@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text.Json;
 using System.Windows;
+using System.Windows.Controls;
 using PersonManager.Models;
 
 namespace PersonManager;
@@ -20,6 +21,14 @@ public partial class MainWindow : Window {
 		get;
 		set;
 	} = new List<Person>();
+
+	public void HandleSelectionChanged(object sender, SelectionChangedEventArgs e) {
+		if (PeopleDataGrid.SelectedItem is Person selectedPerson) {
+			TB_ID.Text = selectedPerson.ID.ToString();
+			TB_Name.Text = selectedPerson.Name;
+			TB_Age.Text = selectedPerson.Age.ToString();
+		}
+	}
 
 	private void LoadData() {
 		if (!File.Exists(filePath)) {

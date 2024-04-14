@@ -12,7 +12,7 @@
 			<ColumnDefinition Width="*"/>
 		</Grid.ColumnDefinitions>
 
-		<DataGrid AutoGenerateColumns="False" Grid.Column="0" Margin="10" Name="PeopleDataGrid">
+		<DataGrid AutoGenerateColumns="False" Grid.Column="0" Margin="10" Name="PeopleDataGrid" SelectionChanged="HandleSelectionChanged">
 			<DataGrid.Columns>
 				<DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
 				<DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
