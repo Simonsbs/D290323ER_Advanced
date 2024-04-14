@@ -37,7 +37,12 @@
 
 		<StackPanel Grid.Column="1">
 			<Label Content="Filter:" Margin="6 0 10 0"/>
-			<TextBox Margin="10 0 10 10" KeyUp="HandleFilterKeyUp" Name="TB_Filter"/>
+			<TextBox Margin="10 0 10 10" 
+			         KeyUp="HandleFilterKeyUp" 
+			         Name="TB_Filter" 
+			         Text="Filter..." 
+			         GotFocus="HandleFilterFocus" 
+			         LostFocus="HandleFilterLostFocus"/>
 
 
 			<Label Content="ID:" Margin="6 0 10 0"/>

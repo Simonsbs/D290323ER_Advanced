@@ -105,6 +105,22 @@ public partial class MainWindow : Window {
 		};
 	}
 
+	private void HandleFilterFocus(object sender, RoutedEventArgs e) {
+		if (TB_Filter.Text != "Filter...") {
+			return;
+		}
+
+		TB_Filter.Text = "";
+	}
+
+	private void HandleFilterLostFocus(object sender, RoutedEventArgs e) {
+		if (!string.IsNullOrWhiteSpace(TB_Filter.Text)) {
+			return;
+		}
+
+		TB_Filter.Text = "Filter...";
+	}
+
 	private void ClearForm() {
 		TB_ID.Clear();
 		TB_Name.Clear();
