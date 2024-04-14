@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryGame", "MemoryGame\Me
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{FF8F4BB5-8BF0-4330-8CA5-9005FB924747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonManager", "PersonManager\PersonManager.csproj", "{EC007E57-AA75-4251-A185-8F9983048C23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonManager", "PersonManager\PersonManager.csproj", "{EC007E57-AA75-4251-A185-8F9983048C23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeApp", "JokeApp\JokeApp.csproj", "{25E3A8BD-8B92-4A66-8EBE-E319ED35E322}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{EC007E57-AA75-4251-A185-8F9983048C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC007E57-AA75-4251-A185-8F9983048C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC007E57-AA75-4251-A185-8F9983048C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25E3A8BD-8B92-4A66-8EBE-E319ED35E322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25E3A8BD-8B92-4A66-8EBE-E319ED35E322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25E3A8BD-8B92-4A66-8EBE-E319ED35E322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25E3A8BD-8B92-4A66-8EBE-E319ED35E322}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
