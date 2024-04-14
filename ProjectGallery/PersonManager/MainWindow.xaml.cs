@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.ObjectModel;
+using System.IO;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,10 +18,10 @@ public partial class MainWindow : Window {
 		LoadData();
 	}
 
-	private List<Person> People {
+	private ObservableCollection<Person> People {
 		get;
 		set;
-	} = new List<Person>();
+	} = new ObservableCollection<Person>();
 
 	public void HandleSelectionChanged(object sender, SelectionChangedEventArgs e) {
 		if (PeopleDataGrid.SelectedItem is Person selectedPerson) {
@@ -68,6 +69,23 @@ public partial class MainWindow : Window {
 			ClearForm();
 		}
 	}
+	
+	private void HandleDeleteClick(object sender, RoutedEventArgs e) {
+		MessageBoxResult result = MessageBox.Show("Are you sure?", "delete", MessageBoxButton.YesNo);
+		if (result == MessageBoxResult.No) {
+			return;
+		}
+
+		Button btn = sender as Button;
+		if (btn == null) {
+			return;
+		}
+
+		if (btn.DataContext is Person personToDelete) {
+			People.Remove(personToDelete);
+			SaveData();
+		}
+	}
 
 	private void ClearForm() {
 		TB_ID.Clear();
@@ -104,6 +122,7 @@ public partial class MainWindow : Window {
 		}
 
 	}
+
 
 	
 }

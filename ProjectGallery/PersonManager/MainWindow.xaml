@@ -24,6 +24,14 @@
 				<DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
 				<DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
 				<DataGridTextColumn Header="Age" Width="*" Binding="{Binding Age}"/>
+
+				<DataGridTemplateColumn Header="Action" Width="*">
+					<DataGridTemplateColumn.CellTemplate>
+						<DataTemplate>
+							<Button Content="Delete" Click="HandleDeleteClick" />
+						</DataTemplate>
+					</DataGridTemplateColumn.CellTemplate>
+				</DataGridTemplateColumn>
 			</DataGrid.Columns>
 		</DataGrid>
 
