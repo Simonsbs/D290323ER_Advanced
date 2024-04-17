@@ -26,9 +26,20 @@ public partial class MainWindow : Window {
 		client.BaseAddress = new Uri("https://662005ea3bf790e070aebf48.mockapi.io/");
 	}
 
-	private async void Button_Click(object sender, RoutedEventArgs e) {
+	private async void Button_ClickLoad(object sender, RoutedEventArgs e) {
 		users = await client.GetFromJsonAsync<List<User>>("users");
 		UsersListBox.ItemsSource = users;
+	}
+
+	private async void Button_ClickAdd(object sender, RoutedEventArgs e) {
+		User userToAdd = new User {
+			Name = TBUserName.Text,
+			Email = TBUserEmail.Text,
+		};
+
+		await client.PostAsJsonAsync("users", userToAdd);
+
+		Button_ClickLoad(sender, e);
 	}
 }
 

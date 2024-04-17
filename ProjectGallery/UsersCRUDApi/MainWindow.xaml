@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 	<StackPanel>
-		<Button Content="Load Users" Margin="10" Click="Button_Click" />
-		<ListBox Margin="10" Height="300" Name="UsersListBox">
+		<Button Content="Load Users" Margin="10" Click="Button_ClickLoad" />
+		<ListBox Margin="10" Height="200" Name="UsersListBox">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<StackPanel Orientation="Horizontal">
@@ -21,5 +21,12 @@
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
+		<StackPanel>			
+			<Label Content="Name:" Margin="5 0 5 0"/>
+			<TextBox Margin="5 0 5 0" Name="TBUserName" />
+			<Label Content="Email:" Margin="5 0 5 0"/>
+			<TextBox Margin="5 0 5 0" Name="TBUserEmail"/>
+			<Button Content="Add User" Margin="5 8 5 0" Click="Button_ClickAdd"/>
+		</StackPanel>
 	</StackPanel>
 </Window>
