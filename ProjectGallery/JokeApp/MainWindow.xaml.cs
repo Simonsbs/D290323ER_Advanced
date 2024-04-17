@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -25,7 +26,14 @@ public partial class MainWindow : Window {
 		TB_Joke.Text = "Loading joke...";
 		try {
 			string joke = await GetJokeFromAPI();
-			TB_Joke.Text = joke;
+
+			//JokeDTO? jokeObj = JsonSerializer.Deserialize<JokeDTO>(joke, new JsonSerializerOptions() {
+			//	PropertyNameCaseInsensitive = true
+			//});
+
+			JokeDTO? jokeObj = JsonSerializer.Deserialize<JokeDTO>(joke);
+
+			TB_Joke.Text = jokeObj.Type + "\n-----\n" + jokeObj.JokeSetup + "\n-----\n" + jokeObj.JokeDelivery;
 		} catch (Exception ex) {
 			MessageBox.Show($"Failed to get joke: {ex.Message}");
 
