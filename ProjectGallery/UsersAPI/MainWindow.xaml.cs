@@ -46,6 +46,17 @@ public class UsersResponse {
 
 	[JsonPropertyName("page")]
     public int Page { get; set; }
+
+	[JsonPropertyName("support")]
+    public SupportDTO Support { get; set; }
+}
+
+public class SupportDTO {
+	[JsonPropertyName("url")]
+	public string URL { get; set; }
+
+	[JsonPropertyName("text")]
+	public string Text{ get; set; }
 }
 
 public class User {
