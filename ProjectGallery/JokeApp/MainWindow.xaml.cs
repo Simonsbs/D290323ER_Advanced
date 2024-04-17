@@ -33,7 +33,16 @@ public partial class MainWindow : Window {
 
 			JokeDTO? jokeObj = JsonSerializer.Deserialize<JokeDTO>(joke);
 
-			TB_Joke.Text = jokeObj.Type + "\n-----\n" + jokeObj.JokeSetup + "\n-----\n" + jokeObj.JokeDelivery;
+			if (jokeObj == null) {
+				TB_Joke.Text = "No joke to show";
+				return;
+			}
+
+			if (jokeObj.Type == "single") {
+				TB_Joke.Text = jokeObj.Type + "\n-----\n" + jokeObj.Joke;
+			} else {
+				TB_Joke.Text = jokeObj.Type + "\n-----\n" + jokeObj.JokeSetup + "\n-----\n" + jokeObj.JokeDelivery;
+			}			
 		} catch (Exception ex) {
 			MessageBox.Show($"Failed to get joke: {ex.Message}");
 
