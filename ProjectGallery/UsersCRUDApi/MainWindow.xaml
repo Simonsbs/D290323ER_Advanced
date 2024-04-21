@@ -27,6 +27,7 @@
 			<Label Content="Email:" Margin="5 0 5 0"/>
 			<TextBox Margin="5 0 5 0" Name="TBUserEmail"/>
 			<Button Content="Add User" Margin="5 8 5 0" Click="Button_ClickAdd"/>
+			<Button Content="Update Selected User" Margin="5 8 5 0" Click="Button_ClickUpdate"/>
 		</StackPanel>
 	</StackPanel>
 </Window>

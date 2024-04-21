@@ -41,6 +41,17 @@ public partial class MainWindow : Window {
 
 		Button_ClickLoad(sender, e);
 	}
+
+	private async void Button_ClickUpdate(object sender, RoutedEventArgs e) {
+		if (UsersListBox.SelectedItem is User userToUpdate) {
+			userToUpdate.Name = TBUserName.Text;
+			userToUpdate.Email = TBUserEmail.Text;
+
+			await client.PutAsJsonAsync("users/" + userToUpdate.ID, userToUpdate);
+
+			Button_ClickLoad(sender, e);
+		}
+	}
 }
 
 
