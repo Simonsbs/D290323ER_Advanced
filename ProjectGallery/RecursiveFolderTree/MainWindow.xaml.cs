@@ -31,11 +31,45 @@ public partial class MainWindow : Window {
 		ResultsTreeView.Items.Clear();
 		TreeViewItem root = BuildDirectory(dlg.FolderName);
 		ResultsTreeView.Items.Add(root);
+
+		//TreeViewItem root = new TreeViewItem();
+		//root.Header = "Im the root";
+		//root.Items.Add(new TreeViewItem { 
+		//	Header = "Im a child 1"
+		//});
+		//root.Items.Add(new TreeViewItem {
+		//	Header = "Im a child 2"
+		//});
+		//ResultsTreeView.Items.Add(root);
 	}
 
-	private TreeViewItem BuildDirectory(string folderName) {
-		//DirectoryInfo info = new DirectoryInfo(folderName);
-		
+	private TreeViewItem BuildDirectory(string directoryPath) {
+		return BuildDirectory(new DirectoryInfo(directoryPath));
+	}
 
+	private TreeViewItem BuildDirectory(DirectoryInfo info) {
+		//DirectoryInfo info = new DirectoryInfo(folderName);
+		TreeViewItem directoryItem = new TreeViewItem {
+			Header = info.Name
+		};
+
+		try {
+			foreach (DirectoryInfo subDir in info.GetDirectories()) {
+				TreeViewItem childBranch = BuildDirectory(subDir);
+				directoryItem.Items.Add(childBranch);
+			}
+
+			foreach (FileInfo file in info.GetFiles()) {
+				directoryItem.Items.Add(new TreeViewItem {
+					Header = file.Name
+				});
+			}
+		} catch (Exception ex) {
+			directoryItem.Items.Add(new TreeViewItem {
+				Header = "Error: " + ex.Message
+			});
+		}
+
+		return directoryItem;
 	}
 }
