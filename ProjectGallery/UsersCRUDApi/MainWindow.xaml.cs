@@ -52,6 +52,18 @@ public partial class MainWindow : Window {
 			Button_ClickLoad(sender, e);
 		}
 	}
+
+	private async void Button_ClickDelete(object sender, RoutedEventArgs e) {
+		if (UsersListBox.SelectedItem is User userToUpdate) {
+			if (MessageBox.Show("Are you sure?", "delete", MessageBoxButton.YesNo) == MessageBoxResult.No) {
+				return;
+			}
+
+			await client.DeleteAsync("users/" + userToUpdate.ID);
+
+			Button_ClickLoad(sender, e);		
+		}
+	}
 }
 
 
