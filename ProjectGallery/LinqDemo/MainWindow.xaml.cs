@@ -20,13 +20,22 @@ public partial class MainWindow : Window {
 
 		LoadProducts();
 		
-		AddButtons();
-		AddButtons();
-		AddButtons();
-		AddButtons();
+		AddButtons("Example 1", ExampleClick1, ExampleClick2);
+		AddButtons("Example 2", ExampleClick1, ExampleClick2);
 	}
 
-	private void AddButtons() {
+	private void ExampleClick2(object sender, RoutedEventArgs e) {
+		MessageBox.Show("Syntax Clicked");
+	}
+
+	private void ExampleClick1(object sender, RoutedEventArgs e) {
+		MessageBox.Show("Method Clicked");
+	}
+
+	private void AddButtons(string name, 
+		RoutedEventHandler clickMethod, 
+		RoutedEventHandler clickSyntax) {
+
 		StackPanel stackPanel = new StackPanel() {
 			Orientation = Orientation.Horizontal
 		};
@@ -36,16 +45,20 @@ public partial class MainWindow : Window {
 			Margin = new Thickness(5),
 			Padding = new Thickness(5),
 			FontSize = 15,
-			Content = "Method 1"
+			Content = name + " (M)"
 		};
+		btnMethod.Click += clickMethod;
+
 		stackPanel.Children.Add(btnMethod);
 
 		Button btnSyntax = new Button {
 			Margin = new Thickness(5),
 			Padding = new Thickness(5),
 			FontSize = 15,
-			Content = "Syntax 1"
+			Content = name + " (S)"
 		};
+		btnSyntax.Click += clickSyntax;
+
 		stackPanel.Children.Add(btnSyntax);
 	}
 
