@@ -13,23 +13,29 @@ using System.Windows.Shapes;
 
 namespace LinqDemo;
 public partial class MainWindow : Window {
-	List<Product> products;
+	public List<Product> rawListOfProducts;
 
 	public MainWindow() {
 		InitializeComponent();
 
 		LoadProducts();
 		
-		AddButtons("Example 1", ExampleClick1, ExampleClick2);
-		AddButtons("Example 2", ExampleClick1, ExampleClick2);
+		AddButtons("Get All", GetAllMethod, GetAllSyntax);
 	}
 
-	private void ExampleClick2(object sender, RoutedEventArgs e) {
-		MessageBox.Show("Syntax Clicked");
+	private void GetAllMethod(object sender, RoutedEventArgs e) {
+		IEnumerable<Product> result =
+			rawListOfProducts.Select(product => product);
+
+		ResultsDataGrid.ItemsSource = result;
 	}
 
-	private void ExampleClick1(object sender, RoutedEventArgs e) {
-		MessageBox.Show("Method Clicked");
+	private void GetAllSyntax(object sender, RoutedEventArgs e) {
+		IEnumerable<Product> result = 
+			from product in rawListOfProducts
+			select product;
+
+		ResultsDataGrid.ItemsSource = result;
 	}
 
 	private void AddButtons(string name, 
@@ -64,7 +70,7 @@ public partial class MainWindow : Window {
 
 	private void LoadProducts() {
 		string rawJson = File.ReadAllText("Products.json");
-		products = JsonSerializer.Deserialize<List<Product>>(rawJson);
-		ResultsDataGrid.ItemsSource = products;
+		rawListOfProducts = JsonSerializer.Deserialize<List<Product>>(rawJson);
+		//ResultsDataGrid.ItemsSource = rawListOfProducts;
 	}
 }
