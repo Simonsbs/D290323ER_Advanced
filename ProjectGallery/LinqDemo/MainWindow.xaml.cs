@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 namespace LinqDemo;
 public partial class MainWindow : Window {
 	public List<Product> rawListOfProducts;
+	Random rnd = new Random();
 
 	public MainWindow() {
 		InitializeComponent();
@@ -23,7 +24,64 @@ public partial class MainWindow : Window {
 		AddButtons("Get All", GetAllMethod, GetAllSyntax);
 		AddButtons("Get All Names", GetAllNamesMethod, GetAllNamesSyntax);
 		AddButtons("Get All New Obj", GetAllNewObjMethod, GetAllNewObjSyntax);
+		AddButtons("Get All New AnonObj", GetAllNewAnonObjMethod, GetAllNewAnonObjSyntax);
+
+		AddButtons("Order By", OrderByMethod, OrderBySyntax);
 	}
+
+	private void OrderByMethod(object sender, RoutedEventArgs e) {
+		var result =
+			rawListOfProducts
+							.OrderBy(product => product.CategoryId)
+							.ThenByDescending(product => product.Name)
+							.Select(product => product);
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+	private void OrderBySyntax(object sender, RoutedEventArgs e) {
+		var result =
+			from product in rawListOfProducts
+			orderby product.CategoryId, product.Name ascending
+			select product;
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+
+	private void GetAllNewAnonObjMethod(object sender, RoutedEventArgs e) {
+		var result =
+			rawListOfProducts.Select(product => new {
+				SomeName = product.Name,
+				Source = "Method",
+				Age = rnd.Next(10, 50),
+				Id = product.Id
+			});
+
+		//var tmp = new {
+		//	Name = "Bob"
+		//};
+
+		//var x = 1;
+		//var y = new Product();
+		//var z = new object();
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+	private void GetAllNewAnonObjSyntax(object sender, RoutedEventArgs e) {
+		var result =
+			from product in rawListOfProducts
+			select new {
+				SomeName = product.Name ,
+				Source = "Syntax",
+				Age = rnd.Next(10,50),
+				Id = product.Id
+			};
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
 
 	private void GetAllNewObjMethod(object sender, RoutedEventArgs e) {
 		var result =
@@ -35,7 +93,7 @@ public partial class MainWindow : Window {
 	}
 
 	private void GetAllNewObjSyntax(object sender, RoutedEventArgs e) {
-		Random rnd = new Random();
+		
 		var result =
 			from product in rawListOfProducts
 			select new ShortProduct {
