@@ -1,0 +1,182 @@
+﻿[
+	{
+		"Id": 1,
+		"Name": "Wireless Mouse",
+		"Price": 25.99,
+		"CategoryId": 1
+	},
+	{
+		"Id": 2,
+		"Name": "Bluetooth Speaker",
+		"Price": 45.50,
+		"CategoryId": 1
+	},
+	{
+		"Id": 3,
+		"Name": "Ergonomic Keyboard",
+		"Price": 59.99,
+		"CategoryId": 1
+	},
+	{
+		"Id": 4,
+		"Name": "HD Webcam",
+		"Price": 80.75,
+		"CategoryId": 1
+	},
+	{
+		"Id": 5,
+		"Name": "Novel 'The Great Gatsby'",
+		"Price": 15.20,
+		"CategoryId": 2
+	},
+	{
+		"Id": 6,
+		"Name": "Notebook",
+		"Price": 3.45,
+		"CategoryId": 3
+	},
+	{
+		"Id": 7,
+		"Name": "Ballpoint Pens",
+		"Price": 5.55,
+		"CategoryId": 3
+	},
+	{
+		"Id": 8,
+		"Name": "Stapler",
+		"Price": 7.99,
+		"CategoryId": 3
+	},
+	{
+		"Id": 9,
+		"Name": "Packing Tape",
+		"Price": 2.95,
+		"CategoryId": 3
+	},
+	{
+		"Id": 10,
+		"Name": "Printer Paper",
+		"Price": 5.49,
+		"CategoryId": 3
+	},
+	{
+		"Id": 11,
+		"Name": "Men's Running Shoes",
+		"Price": 50.00,
+		"CategoryId": 4
+	},
+	{
+		"Id": 12,
+		"Name": "Women's Sandals",
+		"Price": 35.99,
+		"CategoryId": 4
+	},
+	{
+		"Id": 13,
+		"Name": "Socks Pack",
+		"Price": 12.99,
+		"CategoryId": 4
+	},
+	{
+		"Id": 14,
+		"Name": "Leather Wallet",
+		"Price": 22.49,
+		"CategoryId": 5
+	},
+	{
+		"Id": 15,
+		"Name": "Silk Tie",
+		"Price": 18.99,
+		"CategoryId": 5
+	},
+	{
+		"Id": 16,
+		"Name": "Men's Belt",
+		"Price": 15.00,
+		"CategoryId": 5
+	},
+	{
+		"Id": 17,
+		"Name": "Backpack",
+		"Price": 49.90,
+		"CategoryId": 5
+	},
+	{
+		"Id": 18,
+		"Name": "Briefcase",
+		"Price": 119.50,
+		"CategoryId": 5
+	},
+	{
+		"Id": 19,
+		"Name": "Smartphone Case",
+		"Price": 25.00,
+		"CategoryId": 1
+	},
+	{
+		"Id": 20,
+		"Name": "External Hard Drive",
+		"Price": 88.25,
+		"CategoryId": 1
+	},
+	{
+		"Id": 21,
+		"Name": "Flash Drive",
+		"Price": 19.99,
+		"CategoryId": 1
+	},
+	{
+		"Id": 22,
+		"Name": "Tablet",
+		"Price": 299.99,
+		"CategoryId": 1
+	},
+	{
+		"Id": 23,
+		"Name": "Desktop Monitor",
+		"Price": 165.00,
+		"CategoryId": 1
+	},
+	{
+		"Id": 24,
+		"Name": "Desk Lamp",
+		"Price": 39.99,
+		"CategoryId": 6
+	},
+	{
+		"Id": 25,
+		"Name": "Throw Pillow",
+		"Price": 23.99,
+		"CategoryId": 6
+	},
+	{
+		"Id": 26,
+		"Name": "Wall Art",
+		"Price": 45.00,
+		"CategoryId": 6
+	},
+	{
+		"Id": 27,
+		"Name": "Vase",
+		"Price": 30.00,
+		"CategoryId": 6
+	},
+	{
+		"Id": 28,
+		"Name": "Coffee Mug",
+		"Price": 8.99,
+		"CategoryId": 7
+	},
+	{
+		"Id": 29,
+		"Name": "Cutlery Set",
+		"Price": 75.00,
+		"CategoryId": 7
+	},
+	{
+		"Id": 30,
+		"Name": "Glass Bowl Set",
+		"Price": 20.00,
+		"CategoryId": 7
+	}
+]
