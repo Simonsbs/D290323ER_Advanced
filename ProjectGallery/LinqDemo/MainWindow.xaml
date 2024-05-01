@@ -19,6 +19,11 @@
 			Margin="10" 
 			IsReadOnly="True"/>
 
-		<StackPanel Grid.Column="1" Margin="10" Name="ButtonStack" />
+		<StackPanel Grid.Column="1" Margin="10" Name="ButtonStack">
+			<!--<StackPanel>
+				<Button>Syntax Button</Button>
+				<Button>Method Button</Button>
+			</StackPanel>-->
+		</StackPanel>
 	</Grid>
 </Window>

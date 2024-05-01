@@ -20,7 +20,33 @@ public partial class MainWindow : Window {
 
 		LoadProducts();
 		
-		//AddButtons();
+		AddButtons();
+		AddButtons();
+		AddButtons();
+		AddButtons();
+	}
+
+	private void AddButtons() {
+		StackPanel stackPanel = new StackPanel() {
+			Orientation = Orientation.Horizontal
+		};
+		ButtonStack.Children.Add(stackPanel);
+
+		Button btnMethod = new Button {
+			Margin = new Thickness(5),
+			Padding = new Thickness(5),
+			FontSize = 15,
+			Content = "Method 1"
+		};
+		stackPanel.Children.Add(btnMethod);
+
+		Button btnSyntax = new Button {
+			Margin = new Thickness(5),
+			Padding = new Thickness(5),
+			FontSize = 15,
+			Content = "Syntax 1"
+		};
+		stackPanel.Children.Add(btnSyntax);
 	}
 
 	private void LoadProducts() {
