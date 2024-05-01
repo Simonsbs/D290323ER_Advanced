@@ -21,7 +21,53 @@ public partial class MainWindow : Window {
 		LoadProducts();
 		
 		AddButtons("Get All", GetAllMethod, GetAllSyntax);
+		AddButtons("Get All Names", GetAllNamesMethod, GetAllNamesSyntax);
+		AddButtons("Get All New Obj", GetAllNewObjMethod, GetAllNewObjSyntax);
 	}
+
+	private void GetAllNewObjMethod(object sender, RoutedEventArgs e) {
+		var result =
+			rawListOfProducts.Select(product => new ShortProduct {
+				MyName = product.Name + " Method"
+			});
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+	private void GetAllNewObjSyntax(object sender, RoutedEventArgs e) {
+		Random rnd = new Random();
+		var result =
+			from product in rawListOfProducts
+			select new ShortProduct {
+				MyName = product.Name + " Syntax"
+			};
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+	public class ShortProduct {
+        public string MyName { get; set; }
+    }
+
+	private void GetAllNamesMethod(object sender, RoutedEventArgs e) {
+		IEnumerable<string> result =
+			rawListOfProducts.Select(product => product.Name);
+
+		List<string> listOfNames = result.ToList();
+
+		ResultsDataGrid.ItemsSource = listOfNames;
+	}
+
+	private void GetAllNamesSyntax(object sender, RoutedEventArgs e) {
+		IEnumerable<string> result =
+			from product in rawListOfProducts
+			select product.Name;
+
+		List<string> listOfNames = result.ToList();
+
+		ResultsDataGrid.ItemsSource = listOfNames;
+	}
+
 
 	private void GetAllMethod(object sender, RoutedEventArgs e) {
 		IEnumerable<Product> result =
