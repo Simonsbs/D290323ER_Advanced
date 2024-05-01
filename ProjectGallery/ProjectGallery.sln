@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersAPI", "UsersAPI\UsersA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersCRUDApi", "UsersCRUDApi\UsersCRUDApi.csproj", "{39F4097F-B72B-4533-8D85-A6791C9A03B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursive", "Recursive\Recursive.csproj", "{06503FA8-8ABF-4567-8364-05F768BDB1D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recursive", "Recursive\Recursive.csproj", "{06503FA8-8ABF-4567-8364-05F768BDB1D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveFolderTree", "RecursiveFolderTree\RecursiveFolderTree.csproj", "{AE44F2A9-178F-4F56-8015-855452C70AC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursiveFolderTree", "RecursiveFolderTree\RecursiveFolderTree.csproj", "{AE44F2A9-178F-4F56-8015-855452C70AC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqDemo", "LinqDemo\LinqDemo.csproj", "{D9C0339A-7DF1-4304-899E-735094C8DEBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{AE44F2A9-178F-4F56-8015-855452C70AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE44F2A9-178F-4F56-8015-855452C70AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE44F2A9-178F-4F56-8015-855452C70AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C0339A-7DF1-4304-899E-735094C8DEBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C0339A-7DF1-4304-899E-735094C8DEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C0339A-7DF1-4304-899E-735094C8DEBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C0339A-7DF1-4304-899E-735094C8DEBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
