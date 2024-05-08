@@ -27,7 +27,87 @@ public partial class MainWindow : Window {
 		AddButtons("Get All New AnonObj", GetAllNewAnonObjMethod, GetAllNewAnonObjSyntax);
 
 		AddButtons("Order By", OrderByMethod, OrderBySyntax);
-		AddButtons("Use String Ext", UseStringExtension, UseStringExtension);
+		//AddButtons("Use String Ext", UseStringExtension, UseStringExtension);
+		AddButtons("Filter", FilterMethod, FilterSyntax);
+		AddButtons("First", FirstMethod, FirstSyntax);
+
+		AddButtons("Single", SingleOK, SingleNotOK);
+	}
+
+	private void SingleOK(object sender, RoutedEventArgs e) {
+		var result =
+			rawListOfProducts
+							.OrderBy(product => product.CategoryId)
+							.Where(product => product.CategoryId == 2)
+							.Single();
+
+		if (result == null) {
+			ResultsDataGrid.ItemsSource = null;
+		} else {
+			ResultsDataGrid.ItemsSource = new List<Product>() { result };
+		}
+	}
+
+	private void SingleNotOK(object sender, RoutedEventArgs e) {
+		var result =
+			rawListOfProducts
+							.OrderBy(product => product.CategoryId)
+							.Where(product => product.CategoryId == 999)
+							.SingleOrDefault();
+
+		if (result == null) {
+			ResultsDataGrid.ItemsSource = null;
+		} else {
+			ResultsDataGrid.ItemsSource = new List<Product>() { result };
+		}
+	}
+
+	private void FirstMethod(object sender, RoutedEventArgs e) {
+		var result =
+			rawListOfProducts
+							.OrderBy(product => product.CategoryId)
+							//.Where(product => false)
+							.FirstOrDefault();
+
+		if (result == null) {
+			ResultsDataGrid.ItemsSource = null;
+		} else {
+			ResultsDataGrid.ItemsSource = new List<Product>() { result };
+		}
+	}
+
+	private void FirstSyntax(object sender, RoutedEventArgs e) {
+		var result =
+			from product in rawListOfProducts
+			orderby product.CategoryId
+			select product;
+
+		var singleResult = result.FirstOrDefault();
+
+		if (singleResult == null) {
+			ResultsDataGrid.ItemsSource = null;
+		} else {
+			ResultsDataGrid.ItemsSource = new List<Product>() { singleResult };
+		}
+	}
+
+	private void FilterMethod(object sender, RoutedEventArgs e) {
+		var result =
+			rawListOfProducts
+							.OrderBy(product => product.CategoryId)
+							.Where(product => product.Name.StartsWith("C") && product.CategoryId == 7)
+							.Select(product => product);
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+	private void FilterSyntax(object sender, RoutedEventArgs e) {
+		var result =
+			from product in rawListOfProducts
+			where product.Name.StartsWith("B") || product.CategoryId == 1
+			select product;
+		
+		ResultsDataGrid.ItemsSource = result;
 	}
 
 	private void UseStringExtension(object sender, RoutedEventArgs e) {
