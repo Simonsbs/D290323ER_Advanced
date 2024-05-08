@@ -20,13 +20,24 @@ public partial class MainWindow : Window {
 		InitializeComponent();
 
 		LoadProducts();
-		
+
 		AddButtons("Get All", GetAllMethod, GetAllSyntax);
 		AddButtons("Get All Names", GetAllNamesMethod, GetAllNamesSyntax);
 		AddButtons("Get All New Obj", GetAllNewObjMethod, GetAllNewObjSyntax);
 		AddButtons("Get All New AnonObj", GetAllNewAnonObjMethod, GetAllNewAnonObjSyntax);
 
 		AddButtons("Order By", OrderByMethod, OrderBySyntax);
+		AddButtons("Use String Ext", UseStringExtension, UseStringExtension);
+	}
+
+	private void UseStringExtension(object sender, RoutedEventArgs e) {
+		string result = StringExtensions.FirstLetterToUpper("simon");
+		string result2 = "bob".FirstLetterToUpper();
+
+		string name = "jim";
+		name.FirstLetterToUpper();
+
+		MessageBox.Show(result2);
 	}
 
 	private void OrderByMethod(object sender, RoutedEventArgs e) {
@@ -35,6 +46,11 @@ public partial class MainWindow : Window {
 							.OrderBy(product => product.CategoryId)
 							.ThenByDescending(product => product.Name)
 							.Select(product => product);
+
+		
+		//StringExtensions.ReturnAWord(result);
+		//result.ReturnAWord();
+
 
 		ResultsDataGrid.ItemsSource = result;
 	}
@@ -73,9 +89,9 @@ public partial class MainWindow : Window {
 		var result =
 			from product in rawListOfProducts
 			select new {
-				SomeName = product.Name ,
+				SomeName = product.Name,
 				Source = "Syntax",
-				Age = rnd.Next(10,50),
+				Age = rnd.Next(10, 50),
 				Id = product.Id
 			};
 
@@ -93,7 +109,7 @@ public partial class MainWindow : Window {
 	}
 
 	private void GetAllNewObjSyntax(object sender, RoutedEventArgs e) {
-		
+
 		var result =
 			from product in rawListOfProducts
 			select new ShortProduct {
@@ -104,8 +120,8 @@ public partial class MainWindow : Window {
 	}
 
 	public class ShortProduct {
-        public string MyName { get; set; }
-    }
+		public string MyName { get; set; }
+	}
 
 	private void GetAllNamesMethod(object sender, RoutedEventArgs e) {
 		IEnumerable<string> result =
@@ -135,15 +151,15 @@ public partial class MainWindow : Window {
 	}
 
 	private void GetAllSyntax(object sender, RoutedEventArgs e) {
-		IEnumerable<Product> result = 
+		IEnumerable<Product> result =
 			from product in rawListOfProducts
 			select product;
 
 		ResultsDataGrid.ItemsSource = result;
 	}
 
-	private void AddButtons(string name, 
-		RoutedEventHandler clickMethod, 
+	private void AddButtons(string name,
+		RoutedEventHandler clickMethod,
 		RoutedEventHandler clickSyntax) {
 
 		StackPanel stackPanel = new StackPanel() {

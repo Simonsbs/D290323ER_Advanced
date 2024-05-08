@@ -1,0 +1,4 @@
+﻿1. Build an extension class
+2. add a method to extend int
+3. the method needs to check if the value is even and return true or false
+4. test you extension method on 2-3 int values.
