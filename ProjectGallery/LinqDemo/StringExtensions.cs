@@ -22,3 +22,9 @@ public static class StringExtensions {
 		return string.IsNullOrEmpty(input);
 	}
 }
+
+public static class IntExtensions {
+	public static bool IsEven(this int input) {
+		return input % 2 == 0;
+	}
+}

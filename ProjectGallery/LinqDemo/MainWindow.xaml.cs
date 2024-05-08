@@ -38,6 +38,13 @@ public partial class MainWindow : Window {
 		name.FirstLetterToUpper();
 
 		MessageBox.Show(result2);
+
+		if (3.IsEven()) {
+			MessageBox.Show("Im even");
+		} else {
+			MessageBox.Show("Im odd");
+		}
+		
 	}
 
 	private void OrderByMethod(object sender, RoutedEventArgs e) {
@@ -47,10 +54,9 @@ public partial class MainWindow : Window {
 							.ThenByDescending(product => product.Name)
 							.Select(product => product);
 
-		
+
 		//StringExtensions.ReturnAWord(result);
 		//result.ReturnAWord();
-
 
 		ResultsDataGrid.ItemsSource = result;
 	}
