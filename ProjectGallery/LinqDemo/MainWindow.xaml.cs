@@ -32,6 +32,25 @@ public partial class MainWindow : Window {
 		AddButtons("First", FirstMethod, FirstSyntax);
 
 		AddButtons("Single", SingleOK, SingleNotOK);
+		AddButtons("Take", Take5, Take2);
+	}
+
+	private void Take5(object sender, RoutedEventArgs e) {
+		var result = rawListOfProducts.Take(5);
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+	private void Take2(object sender, RoutedEventArgs e) {
+		var result = rawListOfProducts.Take(2..4);
+
+		/*string helloworld = "Hello World!";
+		string subString = helloworld[^5..^1];
+
+		MessageBox.Show(subString);*/
+
+		ResultsDataGrid.ItemsSource = result;
+
 	}
 
 	private void SingleOK(object sender, RoutedEventArgs e) {
@@ -66,7 +85,7 @@ public partial class MainWindow : Window {
 		var result =
 			rawListOfProducts
 							.OrderBy(product => product.CategoryId)
-							//.Where(product => false)
+							//.Where(product => product.CategoryId == 2)
 							.FirstOrDefault();
 
 		if (result == null) {
@@ -106,7 +125,7 @@ public partial class MainWindow : Window {
 			from product in rawListOfProducts
 			where product.Name.StartsWith("B") || product.CategoryId == 1
 			select product;
-		
+
 		ResultsDataGrid.ItemsSource = result;
 	}
 
@@ -124,7 +143,7 @@ public partial class MainWindow : Window {
 		} else {
 			MessageBox.Show("Im odd");
 		}
-		
+
 	}
 
 	private void OrderByMethod(object sender, RoutedEventArgs e) {
