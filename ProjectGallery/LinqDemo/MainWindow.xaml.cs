@@ -38,6 +38,47 @@ public partial class MainWindow : Window {
 		AddButtons("Take", Take5, Take2);
 
 		AddButtons("All", All, Any);
+
+		AddButtons("Join", JoinMethod, JoinSyntax);
+	}
+
+	private void JoinMethod(object sender, RoutedEventArgs e) {
+		var result = rawListOfProducts.Join(
+				rawListOfCategories,
+				p => p.CategoryId,
+				c => c.Id,
+				(p, c) => new {
+					ProductName = p.Name,
+					ProductPrice = p.Price,
+					CategoryName = c.Name,
+					ADate = DateTime.Now,
+					Simon = "IS COOL"
+				}
+			);
+
+
+		ResultsDataGrid.ItemsSource = result;
+	}
+
+	private void JoinSyntax(object sender, RoutedEventArgs e) {
+		/*
+		 * var result = from p in rawListOfProducts
+					 join c in rawListOfCategories on p.CategoryId equals c.Id
+					 select new {
+						 ProductName = p.Name,
+						 ProductPrice = p.Price,
+						 CategoryName = c.Name
+					 };
+		*/
+		var result = from p in rawListOfProducts
+					 join c in rawListOfCategories on p.CategoryId equals c.Id
+					 select new FullProduct {
+						 Name = p.Name,
+						 Price = p.Price,
+						 CategoryName = c.Name
+					 };
+
+		ResultsDataGrid.ItemsSource = result;
 	}
 
 	private void All(object sender, RoutedEventArgs e) {
