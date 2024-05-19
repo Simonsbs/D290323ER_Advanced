@@ -1,0 +1,30 @@
+﻿[
+	{
+		"Id": 1,
+		"Name": "Electronics"
+	},
+	{
+		"Id": 2,
+		"Name": "Books"
+	},
+	{
+		"Id": 3,
+		"Name": "Office Supplies"
+	},
+	{
+		"Id": 4,
+		"Name": "Footwear"
+	},
+	{
+		"Id": 5,
+		"Name": "Accessories"
+	},
+	{
+		"Id": 6,
+		"Name": "Home Decor"
+	},
+	{
+		"Id": 7,
+		"Name": "Kitchenware"
+	}
+]

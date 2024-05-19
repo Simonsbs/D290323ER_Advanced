@@ -14,12 +14,15 @@ using System.Windows.Shapes;
 namespace LinqDemo;
 public partial class MainWindow : Window {
 	public List<Product> rawListOfProducts;
+	public List<Category> rawListOfCategories;
+
 	Random rnd = new Random();
 
 	public MainWindow() {
 		InitializeComponent();
 
 		LoadProducts();
+		LoadCategories();
 
 		AddButtons("Get All", GetAllMethod, GetAllSyntax);
 		AddButtons("Get All Names", GetAllNamesMethod, GetAllNamesSyntax);
@@ -33,7 +36,33 @@ public partial class MainWindow : Window {
 
 		AddButtons("Single", SingleOK, SingleNotOK);
 		AddButtons("Take", Take5, Take2);
+
+		AddButtons("All", All, Any);
 	}
+
+	private void All(object sender, RoutedEventArgs e) {
+		var result = rawListOfProducts
+			.Where(p => p.CategoryId == 2)
+			.All(p => p.Name.StartsWith("N"));
+
+		if (result) {
+			MessageBox.Show("Im True");
+		} else {
+			MessageBox.Show("Im False");
+		}
+	}
+
+	private void Any(object sender, RoutedEventArgs e) {
+		var result = rawListOfProducts
+			.Any(p => p.Name.StartsWith("Z"));
+
+		if (result) {
+			MessageBox.Show("Im True");
+		} else {
+			MessageBox.Show("Im False");
+		}
+	}
+
 
 	private void Take5(object sender, RoutedEventArgs e) {
 		var result = rawListOfProducts.Take(5);
@@ -296,6 +325,12 @@ public partial class MainWindow : Window {
 	private void LoadProducts() {
 		string rawJson = File.ReadAllText("Products.json");
 		rawListOfProducts = JsonSerializer.Deserialize<List<Product>>(rawJson);
+		//ResultsDataGrid.ItemsSource = rawListOfProducts;
+	}
+
+	private void LoadCategories() {
+		string rawJson = File.ReadAllText("Categories.json");
+		rawListOfCategories = JsonSerializer.Deserialize<List<Category>>(rawJson);
 		//ResultsDataGrid.ItemsSource = rawListOfProducts;
 	}
 }
