@@ -80,30 +80,89 @@ internal class Program {
 		s1.ShowMessage();
 		s2.ShowMessage();
 		b3.ShowMessage();
+
+		//Add(1, 2, 3, 4, 5, 6, 7, 7);
+
+
+		Cat c1 = new Cat(4, 2);
+		Cat c2 = new Cat(3, 1);
+
+		Console.WriteLine(Cat._eyes);
+
+		Console.WriteLine(c1.legs);
+		Console.WriteLine(c2.legs);
+
+        //bool x = 8 % 2 == 0;
+
+        Console.WriteLine(c1.Name);
+		Console.WriteLine(c1.Name);
+
 	}
+
+	//public static void Add(params int[] a) {
+
+	//}
+
+	public class Cat {
+		public static int _eyes;
+		public readonly int ccc = 0;
+		public const int ddd = 0;
+		public int legs;
+
+		private string? _name;
+
+		public string Name {
+			get {
+				//return _name ??= "default";
+
+				if (_name == null) {
+					_name = "default";
+				}
+				return _name;
+			}
+			set => _name = value;
+		}
+
+		public Cat(int legs, int eyes) {
+			
+			_eyes = eyes;
+			this.legs = legs;
+		}
+	}
+
 
 	public sealed class Bob {
 		private static Bob instance;
 
 		private int aNumber;
 
+		const int max = 10;
+		readonly int min = 60;
+
 		private Bob(int aNumber) {
 			this.aNumber = aNumber;
+			min = 0;
 		}
 
 		public static Bob Instance {
 			get {
-				if (instance == null) {
-					instance = new Bob(4567);
-				}
-				return instance;
+				return instance ??= new Bob(4567); 
+
+				//if (instance == null) {
+				//	instance = new Bob(4567);
+				//}
+
+				//return instance;
 			}
 		}
 
 		public void ShowMessage() {
-			Console.WriteLine("Hey! " + aNumber);
+			//min = 55;
+			//max = 66;
+			Console.WriteLine("Hey! " + aNumber + min);
 		}
 	}
+
 
 
 	//public static int? Add(int? a, int? b) {
